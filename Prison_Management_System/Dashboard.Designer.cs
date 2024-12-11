@@ -28,12 +28,163 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Dashboard";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            BtnPrisoners = new Button();
+            BtnVisitors = new Button();
+            BtnStaff = new Button();
+            button3 = new Button();
+            flowLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(24, 30, 54);
+            flowLayoutPanel1.Controls.Add(panel1);
+            flowLayoutPanel1.Controls.Add(BtnPrisoners);
+            flowLayoutPanel1.Controls.Add(BtnVisitors);
+            flowLayoutPanel1.Controls.Add(BtnStaff);
+            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Dock = DockStyle.Left;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(205, 600);
+            flowLayoutPanel1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(199, 150);
+            panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(51, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 90);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(0, 156, 149);
+            label1.Location = new Point(31, 102);
+            label1.Name = "label1";
+            label1.Size = new Size(132, 32);
+            label1.TabIndex = 1;
+            label1.Text = "UserName";
+            // 
+            // BtnPrisoners
+            // 
+            BtnPrisoners.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnPrisoners.FlatAppearance.BorderSize = 0;
+            BtnPrisoners.FlatStyle = FlatStyle.Flat;
+            BtnPrisoners.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnPrisoners.ForeColor = Color.FromArgb(0, 126, 249);
+            BtnPrisoners.Image = (Image)resources.GetObject("BtnPrisoners.Image");
+            BtnPrisoners.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnPrisoners.Location = new Point(3, 159);
+            BtnPrisoners.Name = "BtnPrisoners";
+            BtnPrisoners.Size = new Size(199, 70);
+            BtnPrisoners.TabIndex = 1;
+            BtnPrisoners.Text = "Prisoners";
+            BtnPrisoners.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnPrisoners.UseVisualStyleBackColor = true;
+            BtnPrisoners.Click += BtnPrisoners_Click;
+            // 
+            // BtnVisitors
+            // 
+            BtnVisitors.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnVisitors.FlatAppearance.BorderSize = 0;
+            BtnVisitors.FlatStyle = FlatStyle.Flat;
+            BtnVisitors.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnVisitors.ForeColor = Color.FromArgb(0, 126, 249);
+            BtnVisitors.Image = (Image)resources.GetObject("BtnVisitors.Image");
+            BtnVisitors.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnVisitors.Location = new Point(3, 235);
+            BtnVisitors.Name = "BtnVisitors";
+            BtnVisitors.Size = new Size(199, 70);
+            BtnVisitors.TabIndex = 1;
+            BtnVisitors.Text = "Visitors";
+            BtnVisitors.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnVisitors.UseVisualStyleBackColor = true;
+            BtnVisitors.Click += BtnPrisoners_Click;
+            // 
+            // BtnStaff
+            // 
+            BtnStaff.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnStaff.FlatAppearance.BorderSize = 0;
+            BtnStaff.FlatStyle = FlatStyle.Flat;
+            BtnStaff.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnStaff.ForeColor = Color.FromArgb(0, 126, 249);
+            BtnStaff.Image = (Image)resources.GetObject("BtnStaff.Image");
+            BtnStaff.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnStaff.Location = new Point(3, 311);
+            BtnStaff.Name = "BtnStaff";
+            BtnStaff.Size = new Size(199, 70);
+            BtnStaff.TabIndex = 1;
+            BtnStaff.Text = "Staff";
+            BtnStaff.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnStaff.UseVisualStyleBackColor = true;
+            BtnStaff.Click += BtnPrisoners_Click;
+            // 
+            // button3
+            // 
+            button3.BackgroundImageLayout = ImageLayout.Zoom;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(0, 126, 249);
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(3, 387);
+            button3.Name = "button3";
+            button3.Size = new Size(199, 70);
+            button3.TabIndex = 1;
+            button3.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += BtnPrisoners_Click;
+            // 
+            // Dashboard
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(46, 51, 73);
+            ClientSize = new Size(1000, 600);
+            Controls.Add(flowLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Dashboard";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Dashboard";
+            flowLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private Label label1;
+        private Button BtnPrisoners;
+        private Button BtnVisitors;
+        private Button BtnStaff;
+        private Button button3;
     }
 }
