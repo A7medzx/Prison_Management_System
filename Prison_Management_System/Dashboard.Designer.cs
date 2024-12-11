@@ -36,7 +36,7 @@
             BtnPrisoners = new Button();
             BtnVisitors = new Button();
             BtnStaff = new Button();
-            button3 = new Button();
+            BtnDataGridView = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -49,7 +49,7 @@
             flowLayoutPanel1.Controls.Add(BtnPrisoners);
             flowLayoutPanel1.Controls.Add(BtnVisitors);
             flowLayoutPanel1.Controls.Add(BtnStaff);
-            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(BtnDataGridView);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -97,6 +97,7 @@
             BtnPrisoners.Image = (Image)resources.GetObject("BtnPrisoners.Image");
             BtnPrisoners.ImageAlign = ContentAlignment.MiddleLeft;
             BtnPrisoners.Location = new Point(3, 159);
+            BtnPrisoners.Margin = new Padding(3, 3, 3, 30);
             BtnPrisoners.Name = "BtnPrisoners";
             BtnPrisoners.Size = new Size(199, 70);
             BtnPrisoners.TabIndex = 1;
@@ -114,7 +115,8 @@
             BtnVisitors.ForeColor = Color.FromArgb(0, 126, 249);
             BtnVisitors.Image = (Image)resources.GetObject("BtnVisitors.Image");
             BtnVisitors.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnVisitors.Location = new Point(3, 235);
+            BtnVisitors.Location = new Point(3, 262);
+            BtnVisitors.Margin = new Padding(3, 3, 3, 30);
             BtnVisitors.Name = "BtnVisitors";
             BtnVisitors.Size = new Size(199, 70);
             BtnVisitors.TabIndex = 1;
@@ -132,7 +134,8 @@
             BtnStaff.ForeColor = Color.FromArgb(0, 126, 249);
             BtnStaff.Image = (Image)resources.GetObject("BtnStaff.Image");
             BtnStaff.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnStaff.Location = new Point(3, 311);
+            BtnStaff.Location = new Point(3, 365);
+            BtnStaff.Margin = new Padding(3, 3, 3, 30);
             BtnStaff.Name = "BtnStaff";
             BtnStaff.Size = new Size(199, 70);
             BtnStaff.TabIndex = 1;
@@ -141,22 +144,24 @@
             BtnStaff.UseVisualStyleBackColor = true;
             BtnStaff.Click += BtnPrisoners_Click;
             // 
-            // button3
+            // BtnDataGridView
             // 
-            button3.BackgroundImageLayout = ImageLayout.Zoom;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.FromArgb(0, 126, 249);
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(3, 387);
-            button3.Name = "button3";
-            button3.Size = new Size(199, 70);
-            button3.TabIndex = 1;
-            button3.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += BtnPrisoners_Click;
+            BtnDataGridView.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnDataGridView.FlatAppearance.BorderSize = 0;
+            BtnDataGridView.FlatStyle = FlatStyle.Flat;
+            BtnDataGridView.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnDataGridView.ForeColor = Color.FromArgb(0, 126, 249);
+            BtnDataGridView.Image = (Image)resources.GetObject("BtnDataGridView.Image");
+            BtnDataGridView.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnDataGridView.Location = new Point(3, 468);
+            BtnDataGridView.Margin = new Padding(3, 3, 3, 50);
+            BtnDataGridView.Name = "BtnDataGridView";
+            BtnDataGridView.Size = new Size(199, 70);
+            BtnDataGridView.TabIndex = 1;
+            BtnDataGridView.Text = "DataGridView";
+            BtnDataGridView.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnDataGridView.UseVisualStyleBackColor = true;
+            BtnDataGridView.Click += BtnPrisoners_Click;
             // 
             // Dashboard
             // 
@@ -185,6 +190,6 @@
         private Button BtnPrisoners;
         private Button BtnVisitors;
         private Button BtnStaff;
-        private Button button3;
+        private Button BtnDataGridView;
     }
 }
