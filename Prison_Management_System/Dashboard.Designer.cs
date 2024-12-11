@@ -44,13 +44,13 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.Anchor = AnchorStyles.None;
             flowLayoutPanel1.BackColor = Color.FromArgb(24, 30, 54);
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.Controls.Add(BtnPrisoners);
             flowLayoutPanel1.Controls.Add(BtnVisitors);
             flowLayoutPanel1.Controls.Add(BtnStaff);
             flowLayoutPanel1.Controls.Add(BtnDataGridView);
-            flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(205, 600);
@@ -104,7 +104,6 @@
             BtnPrisoners.Text = "Prisoners";
             BtnPrisoners.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnPrisoners.UseVisualStyleBackColor = true;
-            BtnPrisoners.Click += BtnPrisoners_Click;
             // 
             // BtnVisitors
             // 
@@ -123,7 +122,7 @@
             BtnVisitors.Text = "Visitors";
             BtnVisitors.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnVisitors.UseVisualStyleBackColor = true;
-            BtnVisitors.Click += BtnPrisoners_Click;
+
             // 
             // BtnStaff
             // 
@@ -142,7 +141,7 @@
             BtnStaff.Text = "Staff";
             BtnStaff.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnStaff.UseVisualStyleBackColor = true;
-            BtnStaff.Click += BtnPrisoners_Click;
+            
             // 
             // BtnDataGridView
             // 
@@ -161,7 +160,7 @@
             BtnDataGridView.Text = "DataGridView";
             BtnDataGridView.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnDataGridView.UseVisualStyleBackColor = true;
-            BtnDataGridView.Click += BtnPrisoners_Click;
+
             // 
             // Dashboard
             // 
