@@ -28,72 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
             label1 = new Label();
-            textBox2 = new TextBox();
             label2 = new Label();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            textBox5 = new TextBox();
             label5 = new Label();
+            name = new TextBox();
+            natId = new TextBox();
+            prsrId = new TextBox();
+            rel = new TextBox();
+            date = new TextBox();
+            insert = new Button();
             SuspendLayout();
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = SystemColors.ScrollBar;
-            textBox1.Location = new Point(239, 126);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(210, 27);
-            textBox1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(144, 153);
+            label1.Location = new Point(174, 153);
             label1.Name = "label1";
             label1.Size = new Size(49, 20);
             label1.TabIndex = 1;
             label1.Text = "Name";
             // 
-            // textBox2
-            // 
-            textBox2.BackColor = SystemColors.ScrollBar;
-            textBox2.Location = new Point(239, 217);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(210, 27);
-            textBox2.TabIndex = 0;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(144, 217);
+            label2.Location = new Point(174, 217);
             label2.Name = "label2";
             label2.Size = new Size(52, 20);
             label2.TabIndex = 1;
             label2.Text = "Nat ID";
             // 
-            // textBox3
-            // 
-            textBox3.BackColor = SystemColors.ScrollBar;
-            textBox3.Location = new Point(239, 284);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(210, 27);
-            textBox3.TabIndex = 0;
-            // 
-            // textBox4
-            // 
-            textBox4.BackColor = SystemColors.ScrollBar;
-            textBox4.Location = new Point(239, 348);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(210, 27);
-            textBox4.TabIndex = 0;
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(144, 284);
+            label3.Location = new Point(174, 284);
             label3.Name = "label3";
             label3.Size = new Size(81, 20);
             label3.TabIndex = 1;
@@ -102,28 +71,65 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(144, 348);
+            label4.Location = new Point(174, 348);
             label4.Name = "label4";
             label4.Size = new Size(91, 20);
             label4.TabIndex = 1;
             label4.Text = "Relationship";
             // 
-            // textBox5
-            // 
-            textBox5.BackColor = SystemColors.ScrollBar;
-            textBox5.Location = new Point(239, 415);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(210, 27);
-            textBox5.TabIndex = 0;
-            // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(144, 415);
+            label5.Location = new Point(174, 415);
             label5.Name = "label5";
             label5.Size = new Size(41, 20);
             label5.TabIndex = 1;
             label5.Text = "Date";
+            // 
+            // name
+            // 
+            name.Location = new Point(278, 157);
+            name.Name = "name";
+            name.Size = new Size(197, 27);
+            name.TabIndex = 3;
+            // 
+            // natId
+            // 
+            natId.Location = new Point(278, 210);
+            natId.Name = "natId";
+            natId.Size = new Size(197, 27);
+            natId.TabIndex = 3;
+            // 
+            // prsrId
+            // 
+            prsrId.Location = new Point(278, 277);
+            prsrId.Name = "prsrId";
+            prsrId.Size = new Size(197, 27);
+            prsrId.TabIndex = 3;
+            // 
+            // rel
+            // 
+            rel.Location = new Point(278, 348);
+            rel.Name = "rel";
+            rel.Size = new Size(197, 27);
+            rel.TabIndex = 3;
+            // 
+            // date
+            // 
+            date.Location = new Point(278, 415);
+            date.Name = "date";
+            date.Size = new Size(197, 27);
+            date.TabIndex = 3;
+            // 
+            // insert
+            // 
+            insert.Location = new Point(528, 298);
+            insert.Name = "insert";
+            insert.Size = new Size(94, 29);
+            insert.TabIndex = 4;
+            insert.Text = "Insert";
+            insert.UseVisualStyleBackColor = true;
+            insert.Click += insert_Click;
             // 
             // Visitors
             // 
@@ -132,16 +138,17 @@
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1143, 800);
             ControlBox = false;
+            Controls.Add(insert);
+            Controls.Add(date);
+            Controls.Add(rel);
+            Controls.Add(prsrId);
+            Controls.Add(natId);
+            Controls.Add(name);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Visitors";
             Text = "Visitors";
@@ -151,16 +158,16 @@
         }
 
         #endregion
-
-        private TextBox textBox1;
         private Label label1;
-        private TextBox textBox2;
         private Label label2;
-        private TextBox textBox3;
-        private TextBox textBox4;
         private Label label3;
         private Label label4;
-        private TextBox textBox5;
         private Label label5;
+        private TextBox name;
+        private TextBox natId;
+        private TextBox prsrId;
+        private TextBox rel;
+        private TextBox date;
+        private Button insert;
     }
 }
