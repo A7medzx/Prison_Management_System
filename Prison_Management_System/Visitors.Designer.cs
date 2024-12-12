@@ -43,7 +43,7 @@
             // textBox1
             // 
             textBox1.BackColor = SystemColors.ScrollBar;
-            textBox1.Location = new Point(239, 153);
+            textBox1.Location = new Point(239, 126);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(210, 27);
             textBox1.TabIndex = 0;
