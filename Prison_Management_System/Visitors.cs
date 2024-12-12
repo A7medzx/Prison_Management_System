@@ -16,5 +16,10 @@ namespace Prison_Management_System
         {
             InitializeComponent();
         }
+
+        private void Visitors_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

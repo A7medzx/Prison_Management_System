@@ -16,5 +16,10 @@ namespace Prison_Management_System
         {
             InitializeComponent();
         }
+
+        private void BtnPrisoners_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
