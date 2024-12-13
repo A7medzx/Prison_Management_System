@@ -11,7 +11,14 @@ namespace Prison_Management_System
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Prisoners());
+            Application.Run(new Visitors());
         }
     }
 }
+/*
+ * if (fname)
+ * {
+ *      string edit = ahmed;
+ *      data = edit---id.text;
+ * }
+ */
