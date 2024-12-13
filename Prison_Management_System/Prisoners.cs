@@ -106,7 +106,6 @@ namespace Prison_Management_System
         {
             ID.Text = fName.Text = Crime.Text = Duration.Text = Cell.Text = National_ID.Text = "";
         }
-
         private void editButton_Click(object sender, EventArgs e)
         {
                 string[] lines = File.ReadAllLines(fileName); 
@@ -116,8 +115,13 @@ namespace Prison_Management_System
                     string[] parts = lines[i].Split('-'); 
                     if (parts[0] == ID.Text) 
                     {
-                        lines[i] = $"{ID.Text}-{National_ID.Text}-{fName.Text}-{Crime.Text}-{Duration.Text}-{Cell.Text}"; 
-                        found = true;
+                    lines[i] = $"{ID.Text}-" +
+    $"{(string.IsNullOrWhiteSpace(National_ID.Text) ? parts[1] : National_ID.Text)}-" +
+           $"{(string.IsNullOrWhiteSpace(fName.Text) ?parts[2] : fName.Text)}-" +
+           $"{(string.IsNullOrWhiteSpace(Crime.Text) ?parts[3] : Crime.Text)}-" +
+       $"{(string.IsNullOrWhiteSpace(Duration.Text) ? parts[4] : Duration.Text)}-" +
+           $"{(string.IsNullOrWhiteSpace(Cell.Text) ? parts[5] : Cell.Text)}";
+                    found = true;
                         break;
                     }
                 }
