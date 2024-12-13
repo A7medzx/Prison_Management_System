@@ -123,9 +123,9 @@
             // 
             // insert
             // 
-            insert.Location = new Point(528, 298);
+            insert.Location = new Point(616, 309);
             insert.Name = "insert";
-            insert.Size = new Size(94, 29);
+            insert.Size = new Size(105, 40);
             insert.TabIndex = 4;
             insert.Text = "Insert";
             insert.UseVisualStyleBackColor = true;
