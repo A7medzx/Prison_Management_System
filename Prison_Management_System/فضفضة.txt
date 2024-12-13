@@ -1,12 +1,10 @@
 Oss
 {
-	/*
- * if (fname)
- * {
- *      string edit = ahmed;
- *      data = edit---id.text;
- * }
- */
+	if (fname)
+	{
+		string edit = ahmed;
+		data = edit---id.text;
+	}
 }
 
 
