@@ -15,10 +15,3 @@ namespace Prison_Management_System
         }
     }
 }
-/*
- * if (fname)
- * {
- *      string edit = ahmed;
- *      data = edit---id.text;
- * }
- */
