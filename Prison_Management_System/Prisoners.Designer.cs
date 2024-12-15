@@ -28,11 +28,11 @@
             Crime = new TextBox();
             Duration = new TextBox();
             Cell = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            addButton = new Button();
+            clearButton = new Button();
+            searchButton = new Button();
+            editButton = new Button();
+            deleteButton = new Button();
             label6 = new Label();
             National_ID = new TextBox();
             SuspendLayout();
@@ -119,51 +119,55 @@
             Cell.Size = new Size(125, 27);
             Cell.TabIndex = 9;
             // 
-            // button1
+            // addButton
             // 
-            button1.Location = new Point(82, 360);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 10;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            addButton.Location = new Point(82, 360);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(94, 29);
+            addButton.TabIndex = 10;
+            addButton.Text = "Add";
+            addButton.UseVisualStyleBackColor = true;
+            addButton.Click += addButton_Click;
             // 
-            // button2
+            // clearButton
             // 
-            button2.Location = new Point(361, 360);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 11;
-            button2.Text = "Clear";
-            button2.UseVisualStyleBackColor = true;
+            clearButton.Location = new Point(361, 360);
+            clearButton.Name = "clearButton";
+            clearButton.Size = new Size(94, 29);
+            clearButton.TabIndex = 11;
+            clearButton.Text = "Clear";
+            clearButton.UseVisualStyleBackColor = true;
+            clearButton.Click += clearButton_Click;
             // 
-            // button3
+            // searchButton
             // 
-            button3.Location = new Point(630, 373);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 12;
-            button3.Text = "Search";
-            button3.UseVisualStyleBackColor = true;
+            searchButton.Location = new Point(630, 373);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(94, 29);
+            searchButton.TabIndex = 12;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = true;
+            searchButton.Click += searchButton_Click;
             // 
-            // button4
+            // editButton
             // 
-            button4.Location = new Point(206, 424);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 13;
-            button4.Text = "Edit";
-            button4.UseVisualStyleBackColor = true;
+            editButton.Location = new Point(206, 424);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(94, 29);
+            editButton.TabIndex = 13;
+            editButton.Text = "Edit";
+            editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
             // 
-            // button5
+            // deleteButton
             // 
-            button5.Location = new Point(490, 424);
-            button5.Name = "button5";
-            button5.Size = new Size(94, 29);
-            button5.TabIndex = 14;
-            button5.Text = "Delete";
-            button5.UseVisualStyleBackColor = true;
+            deleteButton.Location = new Point(490, 424);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(94, 29);
+            deleteButton.TabIndex = 14;
+            deleteButton.Text = "Delete";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // label6
             // 
@@ -189,11 +193,11 @@
             ClientSize = new Size(868, 493);
             Controls.Add(National_ID);
             Controls.Add(label6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(deleteButton);
+            Controls.Add(editButton);
+            Controls.Add(searchButton);
+            Controls.Add(clearButton);
+            Controls.Add(addButton);
             Controls.Add(Cell);
             Controls.Add(Duration);
             Controls.Add(Crime);
@@ -223,11 +227,11 @@
         private TextBox Crime;
         private TextBox Duration;
         private TextBox Cell;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private Button addButton;
+        private Button clearButton;
+        private Button searchButton;
+        private Button editButton;
+        private Button deleteButton;
         private Label label6;
         private TextBox National_ID;
     }
