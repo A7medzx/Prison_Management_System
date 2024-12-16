@@ -1,0 +1,33 @@
+﻿Oss
+{
+	if (fname)
+	{
+		string edit = ahmed;
+		data = edit---id.text;
+		نتلاش
+	}
+}
+
+
+Ahmed
+{
+	
+}
+
+
+3bso
+{
+	lol
+}
+
+
+Salah
+{
+	
+}
+
+
+Shahd
+{
+	
+}
