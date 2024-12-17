@@ -106,7 +106,6 @@ namespace Prison_Management_System
                     navigationMap[currentTextBox].Focus();
                 }
             }
-
         }
 
         private void delete_Click(object sender, EventArgs e)
@@ -204,10 +203,6 @@ namespace Prison_Management_System
             prsrId.Clear();
             rel.Clear();
             date.Clear();
-
-
         }
-
-
     }
 }
