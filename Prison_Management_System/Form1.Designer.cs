@@ -28,52 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             button1 = new Button();
+            label3 = new Label();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Silver;
+            label1.BackColor = Color.DimGray;
             label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(150, 167);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(276, 167);
             label1.Name = "label1";
             label1.Size = new Size(71, 32);
             label1.TabIndex = 0;
             label1.Text = "Email";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.Silver;
+            label2.BackColor = Color.DimGray;
             label2.Font = new Font("Segoe UI", 14F);
-            label2.Location = new Point(150, 269);
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(276, 269);
             label2.Name = "label2";
             label2.Size = new Size(111, 32);
             label2.TabIndex = 1;
             label2.Text = "Password";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Silver;
-            label3.Font = new Font("Segoe UI", 20F);
-            label3.Location = new Point(277, 36);
-            label3.Name = "label3";
-            label3.Size = new Size(400, 46);
-            label3.TabIndex = 2;
-            label3.Text = "Enter Email and Password";
-            // 
             // textBox1
             // 
             textBox1.BackColor = SystemColors.ScrollBar;
-            textBox1.Location = new Point(315, 167);
+            textBox1.Location = new Point(466, 167);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(292, 27);
             textBox1.TabIndex = 3;
@@ -81,36 +74,62 @@
             // textBox2
             // 
             textBox2.BackColor = SystemColors.ScrollBar;
-            textBox2.Location = new Point(315, 274);
+            textBox2.Location = new Point(466, 276);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(292, 27);
             textBox2.TabIndex = 4;
             // 
             // button1
             // 
-            button1.Location = new Point(379, 372);
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(504, 372);
             button1.Name = "button1";
             button1.Size = new Size(163, 42);
             button1.TabIndex = 5;
-            button1.Text = "button1";
+            button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(46, 51, 73);
+            label3.Font = new Font("Tahoma", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ControlLightLight;
+            label3.Location = new Point(101, 207);
+            label3.Name = "label3";
+            label3.Size = new Size(112, 82);
+            label3.TabIndex = 1;
+            label3.Text = "Login\r\nMenu\r\n";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            label3.Click += label3_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(46, 51, 73);
+            panel1.Controls.Add(label3);
+            panel1.Location = new Point(-31, -3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(286, 611);
+            panel1.TabIndex = 6;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(46, 51, 73);
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(980, 602);
+            BackColor = Color.DimGray;
+            BackgroundImageLayout = ImageLayout.Center;
+            ClientSize = new Size(897, 560);
+            Controls.Add(label1);
+            Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
-            Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -119,9 +138,10 @@
 
         private Label label1;
         private Label label2;
-        private Label label3;
         private TextBox textBox1;
         private TextBox textBox2;
         private Button button1;
+        private Label label3;
+        private Panel panel1;
     }
 }
