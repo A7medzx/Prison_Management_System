@@ -1,6 +1,6 @@
 ﻿Oss
 {
-	*Some logic errors have to be discussed!!!
+	*Some logic errors have to be discussed!
 	*Slight edits
 	*Styling
 }
