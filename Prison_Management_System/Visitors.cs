@@ -100,7 +100,7 @@ namespace Prison_Management_System
         }
         private void search_Click(object sender, EventArgs e)
         {
-            file = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
+            file = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             sw = new StreamWriter(file);
             sr = new StreamReader(file);
             file.Seek(0, SeekOrigin.Begin);
