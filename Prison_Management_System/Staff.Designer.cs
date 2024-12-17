@@ -41,6 +41,8 @@
             label2 = new Label();
             label3 = new Label();
             label1 = new Label();
+            label5 = new Label();
+            natId = new TextBox();
             SuspendLayout();
             // 
             // clear
@@ -90,7 +92,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(312, 308);
+            textBox4.Location = new Point(312, 301);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(197, 27);
             textBox4.TabIndex = 12;
@@ -119,7 +121,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(208, 308);
+            label4.Location = new Point(208, 301);
             label4.Name = "label4";
             label4.Size = new Size(39, 20);
             label4.TabIndex = 7;
@@ -130,9 +132,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(208, 124);
             label2.Name = "label2";
-            label2.Size = new Size(52, 20);
+            label2.Size = new Size(24, 20);
             label2.TabIndex = 8;
-            label2.Text = "Nat ID";
+            label2.Text = "ID";
             // 
             // label3
             // 
@@ -152,6 +154,22 @@
             label1.TabIndex = 10;
             label1.Text = "Name";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(208, 350);
+            label5.Name = "label5";
+            label5.Size = new Size(85, 20);
+            label5.TabIndex = 7;
+            label5.Text = "National ID";
+            // 
+            // natId
+            // 
+            natId.Location = new Point(312, 350);
+            natId.Name = "natId";
+            natId.Size = new Size(197, 27);
+            natId.TabIndex = 12;
+            // 
             // Staff
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -162,9 +180,11 @@
             Controls.Add(edit);
             Controls.Add(delete);
             Controls.Add(Add);
+            Controls.Add(natId);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
+            Controls.Add(label5);
             Controls.Add(textBox1);
             Controls.Add(label4);
             Controls.Add(label2);
@@ -192,5 +212,7 @@
         private Label label2;
         private Label label3;
         private Label label1;
+        private Label label5;
+        private TextBox natId;
     }
 }

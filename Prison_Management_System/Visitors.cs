@@ -28,11 +28,14 @@ namespace Prison_Management_System
         StreamWriter sw;
         string fileName = @"C:\\Users\\Salma\\Desktop\\test.txt";
         private Dictionary<WinForms.TextBox, WinForms.TextBox> navigationMap;
-
+        string filePath = "lastID.txt"; // File to store the last used ID
+        int lastID = 0;
         public Visitors()
         {
             InitializeComponent();
             InitializeNavigationMap();
+            InitializeComponent();
+            LoadLastID();
         }
 
         private void Visitors_Load(object sender, EventArgs e)
@@ -50,7 +53,6 @@ namespace Prison_Management_System
             path.CloseFigure();
 
             insert.Region = new Region(path);
-            name.Focus();
 
         }
 
@@ -61,7 +63,7 @@ namespace Prison_Management_System
                 MessageBox.Show("Please Fill in All Fields!");
                 return;
             }
-            string data = name.Text + "|" + natId.Text + "|" + prsrId.Text + "|" + rel.Text + "|" + date.Text;
+            string data = visitId.Text + "|" + name.Text + "|" + natId.Text + "|" + prsrId.Text + "|" + rel.Text + "|" + date.Text;
             file = new FileStream(fileName, FileMode.Append, FileAccess.Write);
             sw = new StreamWriter(file);
             sw.WriteLine(data);
@@ -199,6 +201,42 @@ namespace Prison_Management_System
                     navigationMap[currentTextBox].Focus();
                 }
             }
+        }
+
+        private void LoadLastID()
+        {
+            if (File.Exists(filePath)) // Check if the file exists
+            {
+                string content = File.ReadAllText(filePath); // Read the content
+                if (int.TryParse(content, out lastID)) // Convert to integer
+                {
+                    lastID = int.Parse(content); // Successfully loaded ID
+                }
+                else
+                {
+                    lastID = 0; // Reset if file content is invalid
+                }
+            }
+            else
+            {
+                File.WriteAllText(filePath, "0"); // Create the file with 0 if it doesn't exist
+            }
+        }
+
+        // Method to generate a new ID
+        private void GenerateNewID()
+        {
+            lastID++; // Increment the ID
+            visitId.Text = "ID-" + lastID.ToString("D4"); // Format the ID: ID-0001, ID-0002, etc.
+
+            // Save the updated ID back to the file
+            File.WriteAllText(filePath, lastID.ToString());
+        }
+
+        // Button click event to generate a new ID
+        private void btnGenerateID_Click(object sender, EventArgs e)
+        {
+            GenerateNewID(); // Call the method to generate a new ID
         }
     }
 }

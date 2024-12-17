@@ -43,6 +43,8 @@
             search = new Button();
             clear = new Button();
             edit = new Button();
+            label6 = new Label();
+            visitId = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -127,7 +129,7 @@
             // 
             // insert
             // 
-            insert.Location = new Point(616, 309);
+            insert.Location = new Point(716, 284);
             insert.Name = "insert";
             insert.Size = new Size(105, 40);
             insert.TabIndex = 4;
@@ -175,6 +177,23 @@
             edit.UseVisualStyleBackColor = true;
             edit.Click += delete_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(174, 88);
+            label6.Name = "label6";
+            label6.Size = new Size(56, 20);
+            label6.TabIndex = 1;
+            label6.Text = "Visit ID";
+            // 
+            // visitId
+            // 
+            visitId.Enabled = false;
+            visitId.Location = new Point(278, 92);
+            visitId.Name = "visitId";
+            visitId.Size = new Size(197, 27);
+            visitId.TabIndex = 1;
+            // 
             // Visitors
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -191,10 +210,12 @@
             Controls.Add(rel);
             Controls.Add(prsrId);
             Controls.Add(natId);
+            Controls.Add(visitId);
             Controls.Add(name);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label2);
+            Controls.Add(label6);
             Controls.Add(label3);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
@@ -221,5 +242,7 @@
         private Button search;
         private Button clear;
         private Button edit;
+        private Label label6;
+        private TextBox visitId;
     }
 }
