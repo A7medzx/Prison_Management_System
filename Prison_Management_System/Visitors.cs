@@ -54,24 +54,6 @@ namespace Prison_Management_System
 
         }
 
-        private void InitializeNavigationMap()
-        {
-            // Define the navigation map
-            navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
-            {
-
-                {name, natId},
-                {natId, prsrId},
-                {prsrId, rel},
-                {rel, date},
-                {date, name}// Loop back to the first textbox
-            };
-
-            foreach (var pair in navigationMap.Keys)
-            {
-                pair.KeyDown += TextBox_KeyDown;
-            }
-        }
         private void insert_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(natId.Text) || string.IsNullOrWhiteSpace(prsrId.Text) || string.IsNullOrWhiteSpace(rel.Text) || string.IsNullOrWhiteSpace(date.Text))
@@ -86,23 +68,6 @@ namespace Prison_Management_System
             sw.Close();
             file.Close();
             name.Text = natId.Text = prsrId.Text = rel.Text = date.Text = "";
-        }
-
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // Prevent the "ding" sound
-
-                var currentTextBox = sender as WinForms.TextBox;
-
-                if (currentTextBox != null && navigationMap.ContainsKey(currentTextBox))
-                {
-                    // Move to the next textbox in the map
-                    navigationMap[currentTextBox].Focus();
-                }
-            }
         }
 
         private void delete_Click(object sender, EventArgs e)
@@ -198,6 +163,42 @@ namespace Prison_Management_System
             prsrId.Clear();
             rel.Clear();
             date.Clear();
+        }
+
+        private void InitializeNavigationMap()
+        {
+            // Define the navigation map
+
+            navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
+        {
+            {name, natId},
+            {natId, prsrId},
+            {prsrId, rel},
+            {rel, date},
+            {date, name} // Loop back to the first textbox
+            };
+
+            foreach (var pair in navigationMap.Keys)
+            {
+                pair.KeyDown += TextBox_KeyDown;
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Prevent the "ding" sound
+
+                var currentTextBox = sender as WinForms.TextBox;
+
+                if (currentTextBox != null && navigationMap.ContainsKey(currentTextBox))
+                {
+                    // Move to the next textbox in the map
+                    navigationMap[currentTextBox].Focus();
+                }
+            }
         }
     }
 }

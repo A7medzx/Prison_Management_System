@@ -114,7 +114,7 @@
             textBox1.Location = new Point(312, 117);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(197, 27);
-            textBox1.TabIndex = 15;
+            textBox1.TabIndex = 1;
             // 
             // label4
             // 

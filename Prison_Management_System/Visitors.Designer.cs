@@ -95,7 +95,7 @@
             name.Location = new Point(278, 157);
             name.Name = "name";
             name.Size = new Size(197, 27);
-            name.TabIndex = 3;
+            name.TabIndex = 1;
             // 
             // natId
             // 

@@ -161,7 +161,6 @@ namespace Prison_Management_System
             {Duration, Cell},
             {Cell, fName} // Loop back to the first textbox
             };
-            //fName.Focus();
 
             foreach (var pair in navigationMap.Keys)
             {
