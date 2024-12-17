@@ -1,11 +1,8 @@
 ﻿Oss
 {
-	if (fname)
-	{
-		string edit = ahmed;
-		data = edit---id.text;
-		نتلاش
-	}
+	*Some logic errors have to be discussed!!!
+	*Slight edits
+	*Styling
 }
 
 
@@ -17,7 +14,7 @@ Ahmed
 
 3bso
 {
-	lol
+	
 }
 
 
@@ -29,5 +26,5 @@ Salah
 
 Shahd
 {
-	
+	*Nat ID textbox
 }

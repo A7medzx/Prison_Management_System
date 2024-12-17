@@ -39,6 +39,10 @@
             rel = new TextBox();
             date = new TextBox();
             insert = new Button();
+            delete = new Button();
+            search = new Button();
+            clear = new Button();
+            edit = new Button();
             SuspendLayout();
             // 
             // label1
@@ -131,6 +135,46 @@
             insert.UseVisualStyleBackColor = true;
             insert.Click += insert_Click;
             // 
+            // delete
+            // 
+            delete.Location = new Point(727, 589);
+            delete.Name = "delete";
+            delete.Size = new Size(94, 29);
+            delete.TabIndex = 5;
+            delete.Text = "Delete";
+            delete.UseVisualStyleBackColor = true;
+            delete.Click += delete_Click;
+            // 
+            // search
+            // 
+            search.Location = new Point(324, 579);
+            search.Name = "search";
+            search.Size = new Size(94, 29);
+            search.TabIndex = 5;
+            search.Text = "Search";
+            search.UseVisualStyleBackColor = true;
+            search.Click += delete_Click;
+            // 
+            // clear
+            // 
+            clear.Location = new Point(201, 589);
+            clear.Name = "clear";
+            clear.Size = new Size(94, 29);
+            clear.TabIndex = 5;
+            clear.Text = "Clear";
+            clear.UseVisualStyleBackColor = true;
+            clear.Click += delete_Click;
+            // 
+            // edit
+            // 
+            edit.Location = new Point(594, 617);
+            edit.Name = "edit";
+            edit.Size = new Size(94, 29);
+            edit.TabIndex = 5;
+            edit.Text = "Edit";
+            edit.UseVisualStyleBackColor = true;
+            edit.Click += delete_Click;
+            // 
             // Visitors
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -138,6 +182,10 @@
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1143, 800);
             ControlBox = false;
+            Controls.Add(clear);
+            Controls.Add(search);
+            Controls.Add(edit);
+            Controls.Add(delete);
             Controls.Add(insert);
             Controls.Add(date);
             Controls.Add(rel);
@@ -169,5 +217,9 @@
         private TextBox rel;
         private TextBox date;
         private Button insert;
+        private Button delete;
+        private Button search;
+        private Button clear;
+        private Button edit;
     }
 }

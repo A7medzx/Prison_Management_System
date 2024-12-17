@@ -32,7 +32,7 @@ namespace Prison_Management_System
         {
             if ( string.IsNullOrWhiteSpace(ID.Text) || string.IsNullOrWhiteSpace(fName.Text) || string.IsNullOrWhiteSpace(Crime.Text) ||string.IsNullOrWhiteSpace(Duration.Text) ||string.IsNullOrWhiteSpace(Cell.Text) || string.IsNullOrWhiteSpace(National_ID.Text))
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show("Please Fill in All Fields!");
                 return;
             }
             myFile = new FileStream(fileName, FileMode.Append, FileAccess.Write);
@@ -85,21 +85,21 @@ namespace Prison_Management_System
                 {
                     if (line.Contains("*"))
                     {
-                        continue; 
+                        continue;
                     }
                     field = line.Split('-');
-                        if (int.Parse(field[0]) == idnumber)
+                    if (int.Parse(field[0]) == idnumber)
                     {
                         National_ID.Text = field[1];
                         fName.Text = field[2];
                         Crime.Text = field[3];
                         Duration.Text = field[4];
                         Cell.Text = field[5];
-                        MessageBox.Show("Found prisoner");
+                        MessageBox.Show("Prisoner Found!");
                         return;
                     }
                 }
-                MessageBox.Show("Not found prisoner");
+                MessageBox.Show("Prisoner Not Found!");
             }
         }
         private void clearButton_Click(object sender, EventArgs e)
@@ -116,11 +116,11 @@ namespace Prison_Management_System
                     if (parts[0] == ID.Text) 
                     {
                     lines[i] = $"{ID.Text}-" +
-    $"{(string.IsNullOrWhiteSpace(National_ID.Text) ? parts[1] : National_ID.Text)}-" +
-           $"{(string.IsNullOrWhiteSpace(fName.Text) ?parts[2] : fName.Text)}-" +
-           $"{(string.IsNullOrWhiteSpace(Crime.Text) ?parts[3] : Crime.Text)}-" +
-       $"{(string.IsNullOrWhiteSpace(Duration.Text) ? parts[4] : Duration.Text)}-" +
-           $"{(string.IsNullOrWhiteSpace(Cell.Text) ? parts[5] : Cell.Text)}";
+                    $"{(string.IsNullOrWhiteSpace(National_ID.Text) ? parts[1] : National_ID.Text)}-" +
+                    $"{(string.IsNullOrWhiteSpace(fName.Text) ?parts[2] : fName.Text)}-" +
+                    $"{(string.IsNullOrWhiteSpace(Crime.Text) ?parts[3] : Crime.Text)}-" +
+                    $"{(string.IsNullOrWhiteSpace(Duration.Text) ? parts[4] : Duration.Text)}-" +
+                    $"{(string.IsNullOrWhiteSpace(Cell.Text) ? parts[5] : Cell.Text)}";
                     found = true;
                         break;
                     }
