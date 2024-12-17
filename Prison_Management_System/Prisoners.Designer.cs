@@ -43,7 +43,7 @@
             label1.Location = new Point(24, 31);
             label1.Name = "label1";
             label1.Size = new Size(81, 20);
-            label1.TabIndex = 0;
+            label1.TabIndex = 1;
             label1.Text = "Prisoner ID";
             // 
             // label2
@@ -95,7 +95,7 @@
             fName.Location = new Point(529, 34);
             fName.Name = "fName";
             fName.Size = new Size(125, 27);
-            fName.TabIndex = 6;
+            fName.TabIndex = 0;
             // 
             // Crime
             // 
@@ -208,8 +208,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Prisoners";
-            Text = "Prisoners";
+            Text = "`";
             Load += Prisoners_Load;
             ResumeLayout(false);
             PerformLayout();

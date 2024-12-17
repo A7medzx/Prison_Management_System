@@ -139,10 +139,10 @@ namespace Prison_Management_System
             bool found = false;
             for (int i = 0; i < lines.Length; i++)
             {
-                string[] parts = lines[i].Split('-');
+                string[] parts = lines[i].Split('|');
                 if (parts[0] == natId.Text)
                 {
-                    lines[i] = $"{natId.Text}-" +
+                    lines[i] = $"{natId.Text}|" +
                     $"{(string.IsNullOrWhiteSpace(prsrId.Text) ? parts[1] : prsrId.Text)}|" +
                     $"{(string.IsNullOrWhiteSpace(name.Text) ? parts[2] : name.Text)}|" +
                     $"{(string.IsNullOrWhiteSpace(rel.Text) ? parts[3] : rel.Text)}|" +
@@ -227,7 +227,7 @@ namespace Prison_Management_System
         private void GenerateNewID()
         {
             lastID++; // Increment the ID
-            visitId.Text = "ID-" + lastID.ToString("D4"); // Format the ID: ID-0001, ID-0002, etc.
+            visitId.Text = lastID.ToString("D4"); // Format the ID: ID-0001, ID-0002, etc.
 
             // Save the updated ID back to the file
             File.WriteAllText(filePath, lastID.ToString());

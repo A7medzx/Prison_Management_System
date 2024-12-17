@@ -97,7 +97,7 @@
             name.Location = new Point(278, 157);
             name.Name = "name";
             name.Size = new Size(197, 27);
-            name.TabIndex = 1;
+            name.TabIndex = 0;
             // 
             // natId
             // 
@@ -182,9 +182,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(174, 105);
             label6.Name = "label6";
-            label6.Size = new Size(49, 20);
+            label6.Size = new Size(56, 20);
             label6.TabIndex = 1;
-            label6.Text = "Name";
+            label6.Text = "Visit ID";
             // 
             // visitId
             // 
