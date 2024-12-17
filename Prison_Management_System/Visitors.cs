@@ -16,8 +16,7 @@ using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using WinForms = System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
-using static System.Windows.Forms.LinkLabel;
+
 
 
 namespace Prison_Management_System
@@ -28,7 +27,6 @@ namespace Prison_Management_System
         StreamReader sr;
         StreamWriter sw;
         string fileName = @"C:\\Users\\Salma\\Desktop\\test.txt";
-
         private Dictionary<WinForms.TextBox, WinForms.TextBox> navigationMap;
 
         public Visitors()
@@ -59,21 +57,20 @@ namespace Prison_Management_System
         private void InitializeNavigationMap()
         {
             // Define the navigation map
-
             navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
             {
+
                 {name, natId},
                 {natId, prsrId},
                 {prsrId, rel},
                 {rel, date},
-                {date, name }// Loop back to the first textbox
+                {date, name}// Loop back to the first textbox
             };
 
             foreach (var pair in navigationMap.Keys)
             {
                 pair.KeyDown += TextBox_KeyDown;
             }
-
         }
         private void insert_Click(object sender, EventArgs e)
         {
@@ -136,35 +133,33 @@ namespace Prison_Management_System
         }
         private void search_Click(object sender, EventArgs e)
         {
+            file = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
+            sw = new StreamWriter(file);
+            sr = new StreamReader(file);
+            file.Seek(0, SeekOrigin.Begin);
+            int pId = int.Parse(prsrId.Text);
+            int nId = int.Parse(natId.Text);
+            string line;
+            string[] field;
+            while ((line = sr.ReadLine()) != null)
             {
-                file = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
-                sw = new StreamWriter(file);
-                sr = new StreamReader(file);
-                file.Seek(0, SeekOrigin.Begin);
-                int pId = int.Parse(prsrId.Text);
-                int nId = int.Parse(natId.Text);
-                string line;
-                string[] field;
-                while ((line = sr.ReadLine()) != null)
+                if (line.Contains("*"))
                 {
-                    if (line.Contains("*"))
-                    {
-                        continue;
-                    }
-                    field = line.Split('|');
-                    if (int.Parse(field[0]) == pId)
-                    {
-                        name.Text = field[1];
-                        natId.Text = field[2];
-                        prsrId.Text = field[3];
-                        rel.Text = field[4];
-                        date.Text = field[5];
-                        MessageBox.Show("Visit Found");
-                        return;
-                    }
+                    continue;
                 }
-                MessageBox.Show("Visit Not found");
+                field = line.Split('|');
+                if (int.Parse(field[0]) == pId)
+                {
+                    name.Text = field[1];
+                    natId.Text = field[2];
+                    prsrId.Text = field[3];
+                    rel.Text = field[4];
+                    date.Text = field[5];
+                    MessageBox.Show("Visit Found");
+                    return;
+                }
             }
+            MessageBox.Show("Visit Not found");
         }
 
         private void clear_Click(object sender, EventArgs e)
