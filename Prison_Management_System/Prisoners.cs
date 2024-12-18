@@ -117,7 +117,7 @@ namespace Prison_Management_System
         }
         private void clearButton_Click(object sender, EventArgs e)
         {
-            id.Text = name.Text = crime.Text = duration.Text = cell.Text = natId.Text = "";
+            name.Text = crime.Text = duration.Text = cell.Text = natId.Text = searchId.Text = "";
         }
         private void editButton_Click(object sender, EventArgs e)
         {
@@ -218,6 +218,11 @@ namespace Prison_Management_System
             lastID++; // Increment the ID
             // Save the updated ID back to the file
             File.WriteAllText(filePath, lastID.ToString());
+        }
+
+        private void searchId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
