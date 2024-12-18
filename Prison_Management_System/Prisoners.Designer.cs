@@ -23,18 +23,20 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            ID = new TextBox();
-            fName = new TextBox();
-            Crime = new TextBox();
-            Duration = new TextBox();
-            Cell = new TextBox();
+            id = new TextBox();
+            name = new TextBox();
+            crime = new TextBox();
+            duration = new TextBox();
+            cell = new TextBox();
             addButton = new Button();
             clearButton = new Button();
             searchButton = new Button();
             editButton = new Button();
             deleteButton = new Button();
             label6 = new Label();
-            National_ID = new TextBox();
+            natId = new TextBox();
+            label7 = new Label();
+            searchId = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -83,42 +85,42 @@
             label5.TabIndex = 4;
             label5.Text = "Cell Number";
             // 
-            // ID
+            // id
             // 
-            ID.Enabled = false;
-            ID.Location = new Point(127, 31);
-            ID.Name = "ID";
-            ID.Size = new Size(125, 27);
-            ID.TabIndex = 5;
+            id.Enabled = false;
+            id.Location = new Point(127, 31);
+            id.Name = "id";
+            id.Size = new Size(125, 27);
+            id.TabIndex = 5;
             // 
-            // fName
+            // name
             // 
-            fName.Location = new Point(529, 34);
-            fName.Name = "fName";
-            fName.Size = new Size(125, 27);
-            fName.TabIndex = 0;
+            name.Location = new Point(529, 34);
+            name.Name = "name";
+            name.Size = new Size(125, 27);
+            name.TabIndex = 0;
             // 
-            // Crime
+            // crime
             // 
-            Crime.Location = new Point(82, 225);
-            Crime.Multiline = true;
-            Crime.Name = "Crime";
-            Crime.Size = new Size(617, 90);
-            Crime.TabIndex = 7;
+            crime.Location = new Point(82, 225);
+            crime.Multiline = true;
+            crime.Name = "crime";
+            crime.Size = new Size(617, 90);
+            crime.TabIndex = 7;
             // 
-            // Duration
+            // duration
             // 
-            Duration.Location = new Point(154, 108);
-            Duration.Name = "Duration";
-            Duration.Size = new Size(125, 27);
-            Duration.TabIndex = 8;
+            duration.Location = new Point(154, 108);
+            duration.Name = "duration";
+            duration.Size = new Size(125, 27);
+            duration.TabIndex = 8;
             // 
-            // Cell
+            // cell
             // 
-            Cell.Location = new Point(529, 108);
-            Cell.Name = "Cell";
-            Cell.Size = new Size(125, 27);
-            Cell.TabIndex = 9;
+            cell.Location = new Point(529, 108);
+            cell.Name = "cell";
+            cell.Size = new Size(125, 27);
+            cell.TabIndex = 9;
             // 
             // addButton
             // 
@@ -179,34 +181,52 @@
             label6.TabIndex = 15;
             label6.Text = "Prisoner National ID";
             // 
-            // National_ID
+            // natId
             // 
-            National_ID.Location = new Point(182, 167);
-            National_ID.Multiline = true;
-            National_ID.Name = "National_ID";
-            National_ID.Size = new Size(273, 34);
-            National_ID.TabIndex = 16;
+            natId.Location = new Point(182, 167);
+            natId.Multiline = true;
+            natId.Name = "natId";
+            natId.Size = new Size(273, 34);
+            natId.TabIndex = 16;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(548, 181);
+            label7.Name = "label7";
+            label7.Size = new Size(72, 20);
+            label7.TabIndex = 1;
+            label7.Text = "Search ID";
+            // 
+            // searchId
+            // 
+            searchId.Location = new Point(651, 181);
+            searchId.Name = "searchId";
+            searchId.Size = new Size(125, 27);
+            searchId.TabIndex = 5;
             // 
             // Prisoners
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(868, 493);
-            Controls.Add(National_ID);
+            Controls.Add(natId);
             Controls.Add(label6);
             Controls.Add(deleteButton);
             Controls.Add(editButton);
             Controls.Add(searchButton);
             Controls.Add(clearButton);
             Controls.Add(addButton);
-            Controls.Add(Cell);
-            Controls.Add(Duration);
-            Controls.Add(Crime);
-            Controls.Add(fName);
-            Controls.Add(ID);
+            Controls.Add(cell);
+            Controls.Add(duration);
+            Controls.Add(crime);
+            Controls.Add(name);
+            Controls.Add(searchId);
+            Controls.Add(id);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
+            Controls.Add(label7);
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
@@ -224,17 +244,19 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox ID;
-        private TextBox fName;
-        private TextBox Crime;
-        private TextBox Duration;
-        private TextBox Cell;
+        private TextBox id;
+        private TextBox name;
+        private TextBox crime;
+        private TextBox duration;
+        private TextBox cell;
         private Button addButton;
         private Button clearButton;
         private Button searchButton;
         private Button editButton;
         private Button deleteButton;
         private Label label6;
-        private TextBox National_ID;
+        private TextBox natId;
+        private Label label7;
+        private TextBox searchId;
     }
 }

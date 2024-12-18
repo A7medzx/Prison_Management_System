@@ -45,6 +45,8 @@
             edit = new Button();
             label6 = new Label();
             visitId = new TextBox();
+            searchId = new TextBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -194,6 +196,22 @@
             visitId.Size = new Size(197, 27);
             visitId.TabIndex = 1;
             // 
+            // searchId
+            // 
+            searchId.Location = new Point(616, 467);
+            searchId.Name = "searchId";
+            searchId.Size = new Size(125, 27);
+            searchId.TabIndex = 7;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(513, 467);
+            label7.Name = "label7";
+            label7.Size = new Size(72, 20);
+            label7.TabIndex = 6;
+            label7.Text = "Search ID";
+            // 
             // Visitors
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -201,6 +219,8 @@
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1143, 800);
             ControlBox = false;
+            Controls.Add(searchId);
+            Controls.Add(label7);
             Controls.Add(clear);
             Controls.Add(search);
             Controls.Add(edit);
@@ -244,5 +264,7 @@
         private Button edit;
         private Label label6;
         private TextBox visitId;
+        private TextBox searchId;
+        private Label label7;
     }
 }

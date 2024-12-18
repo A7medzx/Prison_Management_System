@@ -136,7 +136,7 @@ namespace Prison_Management_System
         {
             name.Text = natId.Text = prsrId.Text = rel.Text = date.Text = "";
         }
-        private void edi_Click(object sender, EventArgs e)
+        private void edit_Click(object sender, EventArgs e)
         {
             string[] lines = File.ReadAllLines(fileName);
             bool found = false;

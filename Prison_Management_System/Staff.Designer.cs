@@ -32,17 +32,19 @@
             search = new Button();
             edit = new Button();
             delete = new Button();
-            Add = new Button();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            insert = new Button();
+            shift = new TextBox();
+            role = new TextBox();
+            name = new TextBox();
+            natId = new TextBox();
             label4 = new Label();
             label2 = new Label();
             label3 = new Label();
             label1 = new Label();
             label5 = new Label();
-            Id = new TextBox();
+            id = new TextBox();
+            searchId = new TextBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // clear
@@ -81,42 +83,43 @@
             delete.Text = "Delete";
             delete.UseVisualStyleBackColor = true;
             // 
-            // Add
+            // insert
             // 
-            Add.Location = new Point(650, 269);
-            Add.Name = "Add";
-            Add.Size = new Size(105, 40);
-            Add.TabIndex = 16;
-            Add.Text = "Insert";
-            Add.UseVisualStyleBackColor = true;
+            insert.Location = new Point(650, 269);
+            insert.Name = "insert";
+            insert.Size = new Size(105, 40);
+            insert.TabIndex = 16;
+            insert.Text = "Insert";
+            insert.UseVisualStyleBackColor = true;
+            insert.Click += insert_Click;
             // 
-            // textBox4
+            // shift
             // 
-            textBox4.Location = new Point(312, 308);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(197, 27);
-            textBox4.TabIndex = 12;
+            shift.Location = new Point(312, 308);
+            shift.Name = "shift";
+            shift.Size = new Size(197, 27);
+            shift.TabIndex = 12;
             // 
-            // textBox3
+            // role
             // 
-            textBox3.Location = new Point(312, 237);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(197, 27);
-            textBox3.TabIndex = 13;
+            role.Location = new Point(312, 237);
+            role.Name = "role";
+            role.Size = new Size(197, 27);
+            role.TabIndex = 13;
             // 
-            // textBox2
+            // name
             // 
-            textBox2.Location = new Point(312, 125);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(197, 27);
-            textBox2.TabIndex = 14;
+            name.Location = new Point(312, 125);
+            name.Name = "name";
+            name.Size = new Size(197, 27);
+            name.TabIndex = 0;
             // 
-            // textBox1
+            // natId
             // 
-            textBox1.Location = new Point(312, 180);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(197, 27);
-            textBox1.TabIndex = 0;
+            natId.Location = new Point(312, 180);
+            natId.Name = "natId";
+            natId.Size = new Size(197, 27);
+            natId.TabIndex = 0;
             // 
             // label4
             // 
@@ -163,29 +166,47 @@
             label5.TabIndex = 8;
             label5.Text = "Id";
             // 
-            // Id
+            // id
             // 
-            Id.Enabled = false;
-            Id.Location = new Point(312, 70);
-            Id.Name = "Id";
-            Id.Size = new Size(197, 27);
-            Id.TabIndex = 1;
+            id.Enabled = false;
+            id.Location = new Point(312, 70);
+            id.Name = "id";
+            id.Size = new Size(197, 27);
+            id.TabIndex = 1;
+            // 
+            // searchId
+            // 
+            searchId.Location = new Point(534, 403);
+            searchId.Name = "searchId";
+            searchId.Size = new Size(125, 27);
+            searchId.TabIndex = 22;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(431, 403);
+            label7.Name = "label7";
+            label7.Size = new Size(72, 20);
+            label7.TabIndex = 21;
+            label7.Text = "Search ID";
             // 
             // Staff
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1015, 698);
+            Controls.Add(searchId);
+            Controls.Add(label7);
             Controls.Add(clear);
             Controls.Add(search);
             Controls.Add(edit);
             Controls.Add(delete);
-            Controls.Add(Add);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(Id);
-            Controls.Add(textBox1);
+            Controls.Add(insert);
+            Controls.Add(shift);
+            Controls.Add(role);
+            Controls.Add(name);
+            Controls.Add(id);
+            Controls.Add(natId);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label2);
@@ -205,16 +226,18 @@
         private Button search;
         private Button edit;
         private Button delete;
-        private Button Add;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private Button insert;
+        private TextBox shift;
+        private TextBox role;
+        private TextBox name;
+        private TextBox natId;
         private Label label4;
         private Label label2;
         private Label label3;
         private Label label1;
         private Label label5;
-        private TextBox Id;
+        private TextBox id;
+        private TextBox searchId;
+        private Label label7;
     }
 }
