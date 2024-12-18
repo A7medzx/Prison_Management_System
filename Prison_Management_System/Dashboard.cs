@@ -26,5 +26,10 @@ namespace Prison_Management_System
         {
 
         }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
