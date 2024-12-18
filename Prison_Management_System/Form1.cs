@@ -14,15 +14,25 @@ namespace Prison_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string email = textBox1.Text;
-            string password = textBox2.Text;
+            string email = this.email.Text;
+            string password = this.password.Text;
 
-            if (email == "Ashmawy@gmail.com" && password == "1234")
+            if (email == "ashmawy@gmail.com" && password == "1234")
             {
                 MessageBox.Show("Welcome Ashmawy", "Alart",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+                this.Hide();
             }
+            else
+            {
+                MessageBox.Show("Wrong Email or Password", "ALert",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
         private void label3_Click(object sender, EventArgs e)
