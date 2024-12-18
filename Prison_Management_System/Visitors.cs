@@ -26,7 +26,7 @@ namespace Prison_Management_System
         FileStream file;
         StreamReader sr;
         StreamWriter sw;
-        string fileName = @"../../../Database_Files/";
+        string fileName = @"../../../Database_Files/Visitors Records.txt";
         private Dictionary<WinForms.TextBox, WinForms.TextBox> navigationMap;
         string filePath = @"../../../Database_Files/VID.txt"; // File to store the last used ID
         int lastID = 0;
