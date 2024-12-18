@@ -43,7 +43,7 @@ namespace Prison_Management_System
             }
             myFile = new FileStream(fileName, FileMode.Append, FileAccess.Write);
             sw = new StreamWriter(myFile);
-            sw.WriteLine(ID.Text + "-" + National_ID.Text + "-" + fName.Text + "-" + Crime.Text + "-" + Duration.Text + "-" + Cell.Text);
+            sw.WriteLine(ID.Text + "|" + National_ID.Text + "|" + fName.Text + "|" + Crime.Text + "|" + Duration.Text + "|" + Cell.Text);
             sw.Close();
             myFile.Close();
             ID.Text = fName.Text = Crime.Text = Duration.Text = Cell.Text = National_ID.Text = "";
@@ -66,7 +66,7 @@ namespace Prison_Management_System
             int count = 0;
             while ((line = sr.ReadLine()) != null)
             {
-                field = line.Split('-');
+                field = line.Split('|');
                 if (int.Parse(field[0]) == idp)
                 {
                     myFile.Seek(count, SeekOrigin.Begin);
@@ -93,7 +93,7 @@ namespace Prison_Management_System
                     {
                         continue;
                     }
-                    field = line.Split('-');
+                    field = line.Split('|');
                     if (int.Parse(field[0]) == idnumber)
                     {
                         National_ID.Text = field[1];
@@ -118,14 +118,14 @@ namespace Prison_Management_System
             bool found = false;
             for (int i = 0; i < lines.Length; i++)
             {
-                string[] parts = lines[i].Split('-');
+                string[] parts = lines[i].Split('|');
                 if (parts[0] == ID.Text)
                 {
-                    lines[i] = $"{ID.Text}-" +
-                    $"{(string.IsNullOrWhiteSpace(National_ID.Text) ? parts[1] : National_ID.Text)}-" +
-                    $"{(string.IsNullOrWhiteSpace(fName.Text) ? parts[2] : fName.Text)}-" +
-                    $"{(string.IsNullOrWhiteSpace(Crime.Text) ? parts[3] : Crime.Text)}-" +
-                    $"{(string.IsNullOrWhiteSpace(Duration.Text) ? parts[4] : Duration.Text)}-" +
+                    lines[i] = $"{ID.Text}|" +
+                    $"{(string.IsNullOrWhiteSpace(National_ID.Text) ? parts[1] : National_ID.Text)}|" +
+                    $"{(string.IsNullOrWhiteSpace(fName.Text) ? parts[2] : fName.Text)}|" +
+                    $"{(string.IsNullOrWhiteSpace(Crime.Text) ? parts[3] : Crime.Text)}|" +
+                    $"{(string.IsNullOrWhiteSpace(Duration.Text) ? parts[4] : Duration.Text)}|" +
                     $"{(string.IsNullOrWhiteSpace(Cell.Text) ? parts[5] : Cell.Text)}";
                     found = true;
                     break;

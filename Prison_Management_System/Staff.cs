@@ -37,7 +37,7 @@ namespace Prison_Management_System
         {
             myFile = new FileStream(fileName, FileMode.Append, FileAccess.Write);
             sw = new StreamWriter(myFile);
-            sw.WriteLine(textBox1.Text + "-" + textBox2.Text + "-" + textBox3.Text + "-" + textBox4.Text);
+            sw.WriteLine(textBox1.Text + "|" + textBox2.Text + "|" + textBox3.Text + "|" + textBox4.Text);
             sw.Close();
             myFile.Close();
             textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = "";
@@ -66,7 +66,7 @@ namespace Prison_Management_System
                 {
                     continue;
                 }
-                field = line.Split('-');
+                field = line.Split('|');
                 if (int.Parse(field[0]) == Staff_ID)
 
                 {
@@ -86,15 +86,15 @@ namespace Prison_Management_System
             bool found = false;
             for (int i = 0; i < lines.Length; i++)
             {
-                string[] parts = lines[i].Split('-');
+                string[] parts = lines[i].Split('|');
                 if (parts[0] == textBox1.Text)
 
                 {
-                    lines[i] = $"{textBox1.Text}-" +
-                    $"{(string.IsNullOrWhiteSpace(textBox1.Text) ? parts[1] : textBox1.Text)}-" +
-                    $"{(string.IsNullOrWhiteSpace(textBox2.Text) ? parts[2] : textBox2.Text)}-" +
-                    $"{(string.IsNullOrWhiteSpace(textBox3.Text) ? parts[3] : textBox3.Text)}-" +
-                    $"{(string.IsNullOrWhiteSpace(textBox4.Text) ? parts[4] : textBox4.Text)}-";
+                    lines[i] = $"{textBox1.Text}|" +
+                    $"{(string.IsNullOrWhiteSpace(textBox1.Text) ? parts[1] : textBox1.Text)}|" +
+                    $"{(string.IsNullOrWhiteSpace(textBox2.Text) ? parts[2] : textBox2.Text)}|" +
+                    $"{(string.IsNullOrWhiteSpace(textBox3.Text) ? parts[3] : textBox3.Text)}|" +
+                    $"{(string.IsNullOrWhiteSpace(textBox4.Text) ? parts[4] : textBox4.Text)}|";
                     found = true;
                     break;
                 }
@@ -128,7 +128,7 @@ namespace Prison_Management_System
             int count = 0;
             while ((line = sr.ReadLine()) != null)
             {
-                field = line.Split('-');
+                field = line.Split('|');
                 if (int.Parse(field[0]) == iv)
                 {
                     myFile.Seek(count, SeekOrigin.Begin);
