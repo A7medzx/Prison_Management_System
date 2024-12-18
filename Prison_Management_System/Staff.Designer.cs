@@ -106,14 +106,14 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(312, 170);
+            textBox2.Location = new Point(312, 125);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(197, 27);
             textBox2.TabIndex = 14;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(312, 117);
+            textBox1.Location = new Point(312, 180);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(197, 27);
             textBox1.TabIndex = 0;
@@ -130,7 +130,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(208, 124);
+            label2.Location = new Point(208, 187);
             label2.Name = "label2";
             label2.Size = new Size(52, 20);
             label2.TabIndex = 8;
@@ -148,7 +148,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(208, 177);
+            label1.Location = new Point(208, 132);
             label1.Name = "label1";
             label1.Size = new Size(49, 20);
             label1.TabIndex = 10;

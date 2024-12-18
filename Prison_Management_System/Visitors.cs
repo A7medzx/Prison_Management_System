@@ -28,14 +28,14 @@ namespace Prison_Management_System
         StreamWriter sw;
         string fileName = @"C:\\Users\\Salma\\Desktop\\test.txt";
         private Dictionary<WinForms.TextBox, WinForms.TextBox> navigationMap;
-        string filePath = "lastID.txt"; // File to store the last used ID
+        string filePath = @"../../../Database_Files/VID.txt"; // File to store the last used ID
         int lastID = 0;
         public Visitors()
         {
             InitializeComponent();
             InitializeNavigationMap();
-            InitializeComponent();
             LoadLastID();
+            visitId.Text = lastID.ToString("D4");
         }
 
         private void Visitors_Load(object sender, EventArgs e)
@@ -70,6 +70,9 @@ namespace Prison_Management_System
             sw.Close();
             file.Close();
             name.Text = natId.Text = prsrId.Text = rel.Text = date.Text = "";
+            GenerateNewID();
+            visitId.Text = lastID.ToString("D4");
+
         }
 
         private void delete_Click(object sender, EventArgs e)
@@ -227,16 +230,8 @@ namespace Prison_Management_System
         private void GenerateNewID()
         {
             lastID++; // Increment the ID
-            visitId.Text = lastID.ToString("D4"); // Format the ID: ID-0001, ID-0002, etc.
-
             // Save the updated ID back to the file
             File.WriteAllText(filePath, lastID.ToString());
-        }
-
-        // Button click event to generate a new ID
-        private void btnGenerateID_Click(object sender, EventArgs e)
-        {
-            GenerateNewID(); // Call the method to generate a new ID
         }
     }
 }

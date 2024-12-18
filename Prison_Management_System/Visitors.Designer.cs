@@ -188,6 +188,7 @@
             // 
             // visitId
             // 
+            visitId.Enabled = false;
             visitId.Location = new Point(278, 109);
             visitId.Name = "visitId";
             visitId.Size = new Size(197, 27);

@@ -85,6 +85,7 @@
             // 
             // ID
             // 
+            ID.Enabled = false;
             ID.Location = new Point(127, 31);
             ID.Name = "ID";
             ID.Size = new Size(125, 27);
