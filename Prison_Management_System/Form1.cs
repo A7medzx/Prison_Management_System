@@ -39,10 +39,5 @@ namespace Prison_Management_System
         {
 
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

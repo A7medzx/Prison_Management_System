@@ -51,7 +51,7 @@
             flowLayoutPanel1.Controls.Add(BtnVisitors);
             flowLayoutPanel1.Controls.Add(BtnStaff);
             flowLayoutPanel1.Controls.Add(BtnDataGridView);
-            flowLayoutPanel1.Location = new Point(0, -42);
+            flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(234, 800);
@@ -127,7 +127,6 @@
             BtnVisitors.Text = "Visitors";
             BtnVisitors.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnVisitors.UseVisualStyleBackColor = true;
-            BtnVisitors.Click += BtnVisitors_Click;
             // 
             // BtnStaff
             // 
@@ -146,7 +145,6 @@
             BtnStaff.Text = "Staff";
             BtnStaff.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnStaff.UseVisualStyleBackColor = true;
-            BtnStaff.Click += BtnStaff_Click;
             // 
             // BtnDataGridView
             // 
@@ -165,14 +163,13 @@
             BtnDataGridView.Text = "DataGridView";
             BtnDataGridView.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnDataGridView.UseVisualStyleBackColor = true;
-            BtnDataGridView.Click += BtnDataGridView_Click;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1143, 716);
+            ClientSize = new Size(1143, 800);
             Controls.Add(flowLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
