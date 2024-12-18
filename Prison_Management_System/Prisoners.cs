@@ -39,7 +39,7 @@ namespace Prison_Management_System
         {
 
         }
-        private void addButton_Click(object sender, EventArgs e)
+        private void insert_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(id.Text) || string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(crime.Text) || string.IsNullOrWhiteSpace(duration.Text) || string.IsNullOrWhiteSpace(cell.Text) || string.IsNullOrWhiteSpace(natId.Text))
             {
@@ -59,101 +59,13 @@ namespace Prison_Management_System
         {
 
         }
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            myFile = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
-            sw = new StreamWriter(myFile);
-            sr = new StreamReader(myFile);
-            myFile.Seek(0, SeekOrigin.Begin);
-            myFile.Flush();
-            sw.Flush();
-            int idp = int.Parse(searchId.Text);
-            string line;
-            string[] field;
-            int count = 0;
-            while ((line = sr.ReadLine()) != null)
-            {
-                field = line.Split('|');
-                if (int.Parse(field[0]) == idp)
-                {
-                    myFile.Seek(count, SeekOrigin.Begin);
-                    sw.Write("*");
-                    sw.Flush();
-                    myFile.Flush();
-                }
-                count += line.Length + 2;
-            }
-        }
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            {
-                myFile = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
-                sw = new StreamWriter(myFile);
-                sr = new StreamReader(myFile);
-                myFile.Seek(0, SeekOrigin.Begin);
-                int idnumber = int.Parse(searchId.Text);
-                string line;
-                string[] field;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line.Contains("*"))
-                    {
-                        continue;
-                    }
-                    field = line.Split('|');
-                    if (int.Parse(field[0]) == idnumber)
-                    {
-                        natId.Text = field[1];
-                        name.Text = field[2];
-                        crime.Text = field[3];
-                        duration.Text = field[4];
-                        cell.Text = field[5];
-                        MessageBox.Show("Prisoner Found!");
-                        return;
-                    }
-                }
-                MessageBox.Show("Prisoner Not Found!");
-            }
-        }
+        
+        
         private void clearButton_Click(object sender, EventArgs e)
         {
-            name.Text = crime.Text = duration.Text = cell.Text = natId.Text = searchId.Text = "";
+            name.Text = crime.Text = duration.Text = cell.Text = natId.Text = "";
         }
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            string[] lines = File.ReadAllLines(fileName);
-            bool found = false;
-            for (int i = 0; i < lines.Length; i++)
-            {
-                string[] parts = lines[i].Split('|');
-                if (parts[0] == id.Text)
-                {
-                    lines[i] = $"{id.Text}|" +
-                    $"{(string.IsNullOrWhiteSpace(natId.Text) ? parts[1] : natId.Text)}|" +
-                    $"{(string.IsNullOrWhiteSpace(name.Text) ? parts[2] : name.Text)}|" +
-                    $"{(string.IsNullOrWhiteSpace(crime.Text) ? parts[3] : crime.Text)}|" +
-                    $"{(string.IsNullOrWhiteSpace(duration.Text) ? parts[4] : duration.Text)}|" +
-                    $"{(string.IsNullOrWhiteSpace(cell.Text) ? parts[5] : cell.Text)}";
-                    found = true;
-                    break;
-                }
-            }
-            if (found)
-            {
-                File.WriteAllLines(fileName, lines);
-                MessageBox.Show("Prisoner updated successfully!");
-            }
-            else
-            {
-                MessageBox.Show("Prisoner not found!");
-            }
-            id.Clear();
-            name.Clear();
-            crime.Clear();
-            duration.Clear();
-            cell.Clear();
-            natId.Clear();
-        }
+        
 
         private void InitializeNavigationMap()
         {

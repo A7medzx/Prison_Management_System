@@ -28,7 +28,7 @@
             crime = new TextBox();
             duration = new TextBox();
             cell = new TextBox();
-            addButton = new Button();
+            insert = new Button();
             clearButton = new Button();
             label6 = new Label();
             natId = new TextBox();
@@ -117,15 +117,15 @@
             cell.Size = new Size(125, 27);
             cell.TabIndex = 9;
             // 
-            // addButton
+            // insert
             // 
-            addButton.Location = new Point(82, 360);
-            addButton.Name = "addButton";
-            addButton.Size = new Size(94, 29);
-            addButton.TabIndex = 10;
-            addButton.Text = "Add";
-            addButton.UseVisualStyleBackColor = true;
-            addButton.Click += addButton_Click;
+            insert.Location = new Point(82, 360);
+            insert.Name = "insert";
+            insert.Size = new Size(94, 29);
+            insert.TabIndex = 10;
+            insert.Text = "Add";
+            insert.UseVisualStyleBackColor = true;
+            insert.Click += insert_Click;
             // 
             // clearButton
             // 
@@ -162,7 +162,7 @@
             Controls.Add(natId);
             Controls.Add(label6);
             Controls.Add(clearButton);
-            Controls.Add(addButton);
+            Controls.Add(insert);
             Controls.Add(cell);
             Controls.Add(duration);
             Controls.Add(crime);
@@ -193,7 +193,7 @@
         private TextBox crime;
         private TextBox duration;
         private TextBox cell;
-        private Button addButton;
+        private Button insert;
         private Button clearButton;
         private Label label6;
         private TextBox natId;
