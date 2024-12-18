@@ -16,8 +16,7 @@ using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using WinForms = System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
-using static System.Windows.Forms.LinkLabel;
+
 
 
 namespace Prison_Management_System
@@ -28,13 +27,15 @@ namespace Prison_Management_System
         StreamReader sr;
         StreamWriter sw;
         string fileName = @"C:\\Users\\Salma\\Desktop\\test.txt";
-
         private Dictionary<WinForms.TextBox, WinForms.TextBox> navigationMap;
-
+        string filePath = @"../../../Database_Files/VID.txt"; // File to store the last used ID
+        int lastID = 0;
         public Visitors()
         {
             InitializeComponent();
             InitializeNavigationMap();
+            LoadLastID();
+            visitId.Text = lastID.ToString("D4");
         }
 
         private void Visitors_Load(object sender, EventArgs e)
@@ -52,29 +53,9 @@ namespace Prison_Management_System
             path.CloseFigure();
 
             insert.Region = new Region(path);
-            name.Focus();
 
         }
 
-        private void InitializeNavigationMap()
-        {
-            // Define the navigation map
-
-            navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
-            {
-                {name, natId},
-                {natId, prsrId},
-                {prsrId, rel},
-                {rel, date},
-                {date, name }// Loop back to the first textbox
-            };
-
-            foreach (var pair in navigationMap.Keys)
-            {
-                pair.KeyDown += TextBox_KeyDown;
-            }
-
-        }
         private void insert_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(natId.Text) || string.IsNullOrWhiteSpace(prsrId.Text) || string.IsNullOrWhiteSpace(rel.Text) || string.IsNullOrWhiteSpace(date.Text))
@@ -82,30 +63,16 @@ namespace Prison_Management_System
                 MessageBox.Show("Please Fill in All Fields!");
                 return;
             }
-            string data = name.Text + "|" + natId.Text + "|" + prsrId.Text + "|" + rel.Text + "|" + date.Text;
+            string data = visitId.Text + "|" + name.Text + "|" + natId.Text + "|" + prsrId.Text + "|" + rel.Text + "|" + date.Text;
             file = new FileStream(fileName, FileMode.Append, FileAccess.Write);
             sw = new StreamWriter(file);
             sw.WriteLine(data);
             sw.Close();
             file.Close();
             name.Text = natId.Text = prsrId.Text = rel.Text = date.Text = "";
-        }
+            GenerateNewID();
+            visitId.Text = lastID.ToString("D4");
 
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // Prevent the "ding" sound
-
-                var currentTextBox = sender as WinForms.TextBox;
-
-                if (currentTextBox != null && navigationMap.ContainsKey(currentTextBox))
-                {
-                    // Move to the next textbox in the map
-                    navigationMap[currentTextBox].Focus();
-                }
-            }
         }
 
         private void delete_Click(object sender, EventArgs e)
@@ -136,35 +103,33 @@ namespace Prison_Management_System
         }
         private void search_Click(object sender, EventArgs e)
         {
+            file = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            sw = new StreamWriter(file);
+            sr = new StreamReader(file);
+            file.Seek(0, SeekOrigin.Begin);
+            int pId = int.Parse(prsrId.Text);
+            int nId = int.Parse(natId.Text);
+            string line;
+            string[] field;
+            while ((line = sr.ReadLine()) != null)
             {
-                file = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
-                sw = new StreamWriter(file);
-                sr = new StreamReader(file);
-                file.Seek(0, SeekOrigin.Begin);
-                int pId = int.Parse(prsrId.Text);
-                int nId = int.Parse(natId.Text);
-                string line;
-                string[] field;
-                while ((line = sr.ReadLine()) != null)
+                if (line.Contains("*"))
                 {
-                    if (line.Contains("*"))
-                    {
-                        continue;
-                    }
-                    field = line.Split('|');
-                    if (int.Parse(field[0]) == pId)
-                    {
-                        name.Text = field[1];
-                        natId.Text = field[2];
-                        prsrId.Text = field[3];
-                        rel.Text = field[4];
-                        date.Text = field[5];
-                        MessageBox.Show("Visit Found");
-                        return;
-                    }
+                    continue;
                 }
-                MessageBox.Show("Visit Not found");
+                field = line.Split('|');
+                if (int.Parse(field[0]) == pId)
+                {
+                    name.Text = field[1];
+                    natId.Text = field[2];
+                    prsrId.Text = field[3];
+                    rel.Text = field[4];
+                    date.Text = field[5];
+                    MessageBox.Show("Visit Found");
+                    return;
+                }
             }
+            MessageBox.Show("Visit Not found");
         }
 
         private void clear_Click(object sender, EventArgs e)
@@ -177,10 +142,10 @@ namespace Prison_Management_System
             bool found = false;
             for (int i = 0; i < lines.Length; i++)
             {
-                string[] parts = lines[i].Split('-');
+                string[] parts = lines[i].Split('|');
                 if (parts[0] == natId.Text)
                 {
-                    lines[i] = $"{natId.Text}-" +
+                    lines[i] = $"{natId.Text}|" +
                     $"{(string.IsNullOrWhiteSpace(prsrId.Text) ? parts[1] : prsrId.Text)}|" +
                     $"{(string.IsNullOrWhiteSpace(name.Text) ? parts[2] : name.Text)}|" +
                     $"{(string.IsNullOrWhiteSpace(rel.Text) ? parts[3] : rel.Text)}|" +
@@ -203,6 +168,70 @@ namespace Prison_Management_System
             prsrId.Clear();
             rel.Clear();
             date.Clear();
+        }
+
+        private void InitializeNavigationMap()
+        {
+            // Define the navigation map
+
+            navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
+        {
+            {name, natId},
+            {natId, prsrId},
+            {prsrId, rel},
+            {rel, date},
+            {date, name} // Loop back to the first textbox
+            };
+
+            foreach (var pair in navigationMap.Keys)
+            {
+                pair.KeyDown += TextBox_KeyDown;
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Prevent the "ding" sound
+
+                var currentTextBox = sender as WinForms.TextBox;
+
+                if (currentTextBox != null && navigationMap.ContainsKey(currentTextBox))
+                {
+                    // Move to the next textbox in the map
+                    navigationMap[currentTextBox].Focus();
+                }
+            }
+        }
+
+        private void LoadLastID()
+        {
+            if (File.Exists(filePath)) // Check if the file exists
+            {
+                string content = File.ReadAllText(filePath); // Read the content
+                if (int.TryParse(content, out lastID)) // Convert to integer
+                {
+                    lastID = int.Parse(content); // Successfully loaded ID
+                }
+                else
+                {
+                    lastID = 0; // Reset if file content is invalid
+                }
+            }
+            else
+            {
+                File.WriteAllText(filePath, "0"); // Create the file with 0 if it doesn't exist
+            }
+        }
+
+        // Method to generate a new ID
+        private void GenerateNewID()
+        {
+            lastID++; // Increment the ID
+            // Save the updated ID back to the file
+            File.WriteAllText(filePath, lastID.ToString());
         }
     }
 }

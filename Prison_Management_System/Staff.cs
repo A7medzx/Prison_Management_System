@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using WinForms = System.Windows.Forms;
+
 
 namespace Prison_Management_System
 {
@@ -17,9 +21,12 @@ namespace Prison_Management_System
         StreamReader sr;
         StreamWriter sw;
         string fileName;
+        private Dictionary<WinForms.TextBox, WinForms.TextBox> navigationMap;
+
         public Staff()
         {
             InitializeComponent();
+            InitializeNavigationMap();
         }
 
         private void Staff_Load(object sender, EventArgs e)
@@ -132,6 +139,42 @@ namespace Prison_Management_System
                 count += line.Length + 2;
             }
 
+        }
+
+        private void InitializeNavigationMap()
+        {
+            // Define the navigation map
+
+            navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
+            {
+                {textBox1, textBox2},
+                {textBox2, textBox3},
+                {textBox3, textBox4},
+                {textBox4, textBox1} // Loop back to the first textbox
+            };
+            textBox1.Focus();
+
+            foreach (var pair in navigationMap.Keys)
+            {
+                pair.KeyDown += TextBox_KeyDown;
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Prevent the "ding" sound
+
+                var currentTextBox = sender as WinForms.TextBox;
+
+                if (currentTextBox != null && navigationMap.ContainsKey(currentTextBox))
+                {
+                    // Move to the next textbox in the map
+                    navigationMap[currentTextBox].Focus();
+                }
+            }
         }
     }
 }

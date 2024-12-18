@@ -11,6 +11,9 @@ using System.Xml.Linq;
 using System.IO;
 using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.LinkLabel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using WinForms = System.Windows.Forms;
+
 
 namespace Prison_Management_System
 {
@@ -19,18 +22,21 @@ namespace Prison_Management_System
         public Prisoners()
         {
             InitializeComponent();
+            InitializeNavigationMap();
         }
         FileStream myFile;
         StreamReader sr;
         StreamWriter sw;
         string fileName = @"D:\pris.txt";
+        private Dictionary<WinForms.TextBox, WinForms.TextBox> navigationMap;
+
         private void Prisoners_Load(object sender, EventArgs e)
         {
 
         }
         private void addButton_Click(object sender, EventArgs e)
         {
-            if ( string.IsNullOrWhiteSpace(ID.Text) || string.IsNullOrWhiteSpace(fName.Text) || string.IsNullOrWhiteSpace(Crime.Text) ||string.IsNullOrWhiteSpace(Duration.Text) ||string.IsNullOrWhiteSpace(Cell.Text) || string.IsNullOrWhiteSpace(National_ID.Text))
+            if (string.IsNullOrWhiteSpace(ID.Text) || string.IsNullOrWhiteSpace(fName.Text) || string.IsNullOrWhiteSpace(Crime.Text) || string.IsNullOrWhiteSpace(Duration.Text) || string.IsNullOrWhiteSpace(Cell.Text) || string.IsNullOrWhiteSpace(National_ID.Text))
             {
                 MessageBox.Show("Please Fill in All Fields!");
                 return;
@@ -108,40 +114,77 @@ namespace Prison_Management_System
         }
         private void editButton_Click(object sender, EventArgs e)
         {
-                string[] lines = File.ReadAllLines(fileName); 
-                bool found = false;
-                for (int i = 0; i < lines.Length; i++) 
+            string[] lines = File.ReadAllLines(fileName);
+            bool found = false;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] parts = lines[i].Split('-');
+                if (parts[0] == ID.Text)
                 {
-                    string[] parts = lines[i].Split('-'); 
-                    if (parts[0] == ID.Text) 
-                    {
                     lines[i] = $"{ID.Text}-" +
                     $"{(string.IsNullOrWhiteSpace(National_ID.Text) ? parts[1] : National_ID.Text)}-" +
-                    $"{(string.IsNullOrWhiteSpace(fName.Text) ?parts[2] : fName.Text)}-" +
-                    $"{(string.IsNullOrWhiteSpace(Crime.Text) ?parts[3] : Crime.Text)}-" +
+                    $"{(string.IsNullOrWhiteSpace(fName.Text) ? parts[2] : fName.Text)}-" +
+                    $"{(string.IsNullOrWhiteSpace(Crime.Text) ? parts[3] : Crime.Text)}-" +
                     $"{(string.IsNullOrWhiteSpace(Duration.Text) ? parts[4] : Duration.Text)}-" +
                     $"{(string.IsNullOrWhiteSpace(Cell.Text) ? parts[5] : Cell.Text)}";
                     found = true;
-                        break;
-                    }
+                    break;
                 }
-                if (found)
+            }
+            if (found)
+            {
+                File.WriteAllLines(fileName, lines);
+                MessageBox.Show("Prisoner updated successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Prisoner not found!");
+            }
+            ID.Clear();
+            fName.Clear();
+            Crime.Clear();
+            Duration.Clear();
+            Cell.Clear();
+            National_ID.Clear();
+        }
+
+        private void InitializeNavigationMap()
+        {
+            // Define the navigation map
+
+            navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
+        {
+            {ID, fName},
+            {fName, National_ID},
+            {National_ID, Crime},
+            {Crime, Duration},
+            {Duration, Cell},
+            {Cell, fName} // Loop back to the first textbox
+            };
+
+            foreach (var pair in navigationMap.Keys)
+            {
+                pair.KeyDown += TextBox_KeyDown;
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Prevent the "ding" sound
+
+                var currentTextBox = sender as WinForms.TextBox;
+
+                if (currentTextBox != null && navigationMap.ContainsKey(currentTextBox))
                 {
-                    File.WriteAllLines(fileName, lines); 
-                    MessageBox.Show("Prisoner updated successfully!");
+                    // Move to the next textbox in the map
+                    navigationMap[currentTextBox].Focus();
                 }
-                else
-                {
-                    MessageBox.Show("Prisoner not found!");
-                }
-                ID.Clear();
-                fName.Clear();
-                Crime.Clear();
-                Duration.Clear();
-                Cell.Clear();
-                National_ID.Clear();
             }
         }
     }
+}
 
 

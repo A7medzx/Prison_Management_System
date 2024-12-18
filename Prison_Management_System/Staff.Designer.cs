@@ -41,6 +41,8 @@
             label2 = new Label();
             label3 = new Label();
             label1 = new Label();
+            label5 = new Label();
+            Id = new TextBox();
             SuspendLayout();
             // 
             // clear
@@ -104,17 +106,17 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(312, 170);
+            textBox2.Location = new Point(312, 125);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(197, 27);
             textBox2.TabIndex = 14;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(312, 117);
+            textBox1.Location = new Point(312, 180);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(197, 27);
-            textBox1.TabIndex = 15;
+            textBox1.TabIndex = 0;
             // 
             // label4
             // 
@@ -128,7 +130,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(208, 124);
+            label2.Location = new Point(208, 187);
             label2.Name = "label2";
             label2.Size = new Size(52, 20);
             label2.TabIndex = 8;
@@ -146,11 +148,28 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(208, 177);
+            label1.Location = new Point(208, 132);
             label1.Name = "label1";
             label1.Size = new Size(49, 20);
             label1.TabIndex = 10;
             label1.Text = "Name";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(208, 77);
+            label5.Name = "label5";
+            label5.Size = new Size(22, 20);
+            label5.TabIndex = 8;
+            label5.Text = "Id";
+            // 
+            // Id
+            // 
+            Id.Enabled = false;
+            Id.Location = new Point(312, 70);
+            Id.Name = "Id";
+            Id.Size = new Size(197, 27);
+            Id.TabIndex = 1;
             // 
             // Staff
             // 
@@ -165,11 +184,14 @@
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
+            Controls.Add(Id);
             Controls.Add(textBox1);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label3);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Staff";
             Text = "Staff";
             Load += Staff_Load;
@@ -192,5 +214,7 @@
         private Label label2;
         private Label label3;
         private Label label1;
+        private Label label5;
+        private TextBox Id;
     }
 }
