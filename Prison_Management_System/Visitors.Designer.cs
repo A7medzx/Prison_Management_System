@@ -39,14 +39,9 @@
             rel = new TextBox();
             date = new TextBox();
             insert = new Button();
-            delete = new Button();
-            search = new Button();
             clear = new Button();
-            edit = new Button();
             label6 = new Label();
             visitId = new TextBox();
-            searchId = new TextBox();
-            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -139,26 +134,6 @@
             insert.UseVisualStyleBackColor = true;
             insert.Click += insert_Click;
             // 
-            // delete
-            // 
-            delete.Location = new Point(727, 589);
-            delete.Name = "delete";
-            delete.Size = new Size(94, 29);
-            delete.TabIndex = 5;
-            delete.Text = "Delete";
-            delete.UseVisualStyleBackColor = true;
-            delete.Click += delete_Click;
-            // 
-            // search
-            // 
-            search.Location = new Point(325, 579);
-            search.Name = "search";
-            search.Size = new Size(94, 29);
-            search.TabIndex = 5;
-            search.Text = "Search";
-            search.UseVisualStyleBackColor = true;
-            search.Click += delete_Click;
-            // 
             // clear
             // 
             clear.Location = new Point(201, 589);
@@ -168,16 +143,6 @@
             clear.Text = "Clear";
             clear.UseVisualStyleBackColor = true;
             clear.Click += delete_Click;
-            // 
-            // edit
-            // 
-            edit.Location = new Point(594, 617);
-            edit.Name = "edit";
-            edit.Size = new Size(94, 29);
-            edit.TabIndex = 5;
-            edit.Text = "Edit";
-            edit.UseVisualStyleBackColor = true;
-            edit.Click += delete_Click;
             // 
             // label6
             // 
@@ -196,22 +161,6 @@
             visitId.Size = new Size(197, 27);
             visitId.TabIndex = 1;
             // 
-            // searchId
-            // 
-            searchId.Location = new Point(616, 467);
-            searchId.Name = "searchId";
-            searchId.Size = new Size(125, 27);
-            searchId.TabIndex = 7;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(513, 467);
-            label7.Name = "label7";
-            label7.Size = new Size(72, 20);
-            label7.TabIndex = 6;
-            label7.Text = "Search ID";
-            // 
             // Visitors
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -219,12 +168,7 @@
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1143, 800);
             ControlBox = false;
-            Controls.Add(searchId);
-            Controls.Add(label7);
             Controls.Add(clear);
-            Controls.Add(search);
-            Controls.Add(edit);
-            Controls.Add(delete);
             Controls.Add(insert);
             Controls.Add(date);
             Controls.Add(rel);
@@ -258,13 +202,8 @@
         private TextBox rel;
         private TextBox date;
         private Button insert;
-        private Button delete;
-        private Button search;
         private Button clear;
-        private Button edit;
         private Label label6;
         private TextBox visitId;
-        private TextBox searchId;
-        private Label label7;
     }
 }
