@@ -169,6 +169,8 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 12F);
+            button1.Image = Properties.Resources.writing;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(506, 431);
             button1.Name = "button1";
             button1.Size = new Size(163, 43);
