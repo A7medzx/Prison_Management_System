@@ -37,18 +37,11 @@ namespace Prison_Management_System
 
             if (File.Exists(filePath))
             {
-                // Debug: Log the file being loaded
+
                 Console.WriteLine($"Loading file: {filePath}");
 
                 // Read all lines from the file
                 var lines = File.ReadAllLines(filePath);
-
-                // Debug: Log the first few lines to check the file content
-                Console.WriteLine("First few lines of the file:");
-                foreach (var line in lines.Take(5))  // Log the first 5 lines
-                {
-                    Console.WriteLine(line);
-                }
 
                 // Create a DataTable to store the data
                 DataTable table = new DataTable();
@@ -82,18 +75,17 @@ namespace Prison_Management_System
                 }
 
                 // Loop through each line and add it to the DataTable
-                foreach (var line in lines)
+                foreach (var line in lines) // Lines has all the lines in the file
                 {
                     if (string.IsNullOrWhiteSpace(line)) continue; // Skip empty lines
 
                     var columns = line.Split('|'); // Use '|' as the delimiter
-                    if (columns.Length == table.Columns.Count)
+                    if (columns.Length == table.Columns.Count) // Checks if the No. of data in each line eqauls the No. of columns
                     {
                         table.Rows.Add(columns); // Add row to the table
                     }
                     else
                     {
-                        // Debug: Log malformed lines
                         Console.WriteLine($"Skipping malformed line: {line}");
                     }
                 }
@@ -118,7 +110,7 @@ namespace Prison_Management_System
             // Get the selected row index
             int selectedIndex = dataGridView1.SelectedRows[0].Index;
             DataGridViewRow selectedRow = dataGridView1.Rows[selectedIndex];
-            string selectedID = selectedRow.Cells[0].Value.ToString(); // Assuming the first column is the ID
+            string selectedID = selectedRow.Cells[0].Value.ToString();
 
             // Get the selected file from ComboBox
             string selectedFile = comboBoxFiles.SelectedItem.ToString();
@@ -146,9 +138,7 @@ namespace Prison_Management_System
                 MessageBox.Show("Please select a record to edit.");
                 return;
             }
-
-            try
-            {
+             
                 // Get the selected file from ComboBox
                 if (comboBoxFiles.SelectedItem == null)
                 {
@@ -157,17 +147,10 @@ namespace Prison_Management_System
                 }
                 string selectedFile = comboBoxFiles.SelectedItem.ToString();
 
-                // Debug: Show the exact file name
+                
                 MessageBox.Show($"Selected file: {selectedFile}");
 
                 string filePath = Path.Combine(@"../../../Database_Files", selectedFile);
-
-                // Verify file exists
-                if (!File.Exists(filePath))
-                {
-                    MessageBox.Show($"File not found: {filePath}");
-                    return;
-                }
 
                 // Read all lines from the file
                 var lines = File.ReadAllLines(filePath).ToList();
@@ -177,7 +160,7 @@ namespace Prison_Management_System
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedIndex];
 
                 // Get the ID from the first column of the selected row
-                string selectedID = selectedRow.Cells[0].Value?.ToString();
+                string selectedID = selectedRow.Cells[0].Value.ToString();
                 if (string.IsNullOrEmpty(selectedID))
                 {
                     MessageBox.Show("Invalid record selection.");
@@ -192,7 +175,7 @@ namespace Prison_Management_System
                     return;
                 }
 
-                // Prepare input boxes based on file name (more flexible matching)
+                // Prepare input boxes based on file name
                 string[] lineParts = lines[lineIndex].Split('|');
                 string updatedLine = "";
 
@@ -245,67 +228,12 @@ namespace Prison_Management_System
                 File.WriteAllLines(filePath, lines);
 
                 // Refresh the DataGridView
-                LoadFileToDataGrid(filePath);
+                buttonLoadFile_Click(sender, e);
 
                 MessageBox.Show($"Record with ID {selectedID} has been updated.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}\n\nStack Trace: {ex.StackTrace}");
-            }
+            
         }
-        private void LoadFileToDataGrid(string filePath)
-        {
-            // Reset DataGridView - use DataSource method instead of manually clearing
-            dataGridView1.DataSource = null;
 
-            // Create a new DataTable
-            DataTable table = new DataTable();
-
-            // Set up columns based on the file type
-            if (filePath.Contains("Visitors"))
-            {
-                table.Columns.Add("Visit ID");
-                table.Columns.Add("Name");
-                table.Columns.Add("National ID");
-                table.Columns.Add("Prisoner ID");
-                table.Columns.Add("Relation");
-                table.Columns.Add("Visit Date");
-            }
-            else if (filePath.Contains("Prisoners"))
-            {
-                table.Columns.Add("ID");
-                table.Columns.Add("National ID");
-                table.Columns.Add("Name");
-                table.Columns.Add("Crime");
-                table.Columns.Add("Duration");
-                table.Columns.Add("Cell");
-            }
-            else if (filePath.Contains("Staff"))
-            {
-                table.Columns.Add("Staff ID");
-                table.Columns.Add("Name");
-                table.Columns.Add("National ID");
-                table.Columns.Add("Role");
-                table.Columns.Add("Shift");
-            }
-
-            // Read all lines from the file
-            var lines = File.ReadAllLines(filePath);
-
-            // Add rows to DataTable
-            foreach (var line in lines)
-            {
-                if (!string.IsNullOrWhiteSpace(line))
-                {
-                    var columns = line.Split('|');
-                    table.Rows.Add(columns);
-                }
-            }
-
-            // Set the DataTable as the DataSource for the DataGridView
-            dataGridView1.DataSource = table;
-        }
         private void SearchAndSelect(string searchTerm)
         {
             if (dataGridView1.Rows.Count == 0)
@@ -340,12 +268,11 @@ namespace Prison_Management_System
             }
         }
 
-
         private void TextBoxSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                e.SuppressKeyPress = true; // Prevent the beep sound on Enter
+                e.SuppressKeyPress = false; // Allow the beep sound on Enter
                 string searchTerm = textBoxSearch.Text.Trim();
                 SearchAndSelect(searchTerm);
             }
@@ -370,7 +297,7 @@ namespace Prison_Management_System
             // Check if the DataGridView has rows
             if (dataGridView1.Rows.Count == 0)
             {
-                MessageBox.Show("No data available to export.", "Export to Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No data available to export.", "Export to Excel", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -379,7 +306,7 @@ namespace Prison_Management_System
             {
                 Filter = "Excel Files|*.xlsx",
                 Title = "Save Exported Search Results",
-                FileName = $"SearchResults_{DateTime.Now:yyyyMMddHHmmss}.xlsx"
+                FileName = $"DataBase[{DateTime.Now:yyyy-MM-dd_HH-mm-ss}].xlsx"
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -389,7 +316,7 @@ namespace Prison_Management_System
                 using (var package = new ExcelPackage())
                 {
                     // Create a worksheet
-                    var worksheet = package.Workbook.Worksheets.Add("SearchResults");
+                    var worksheet = package.Workbook.Worksheets.Add("DataBase");
 
                     // Add column headers
                     for (int i = 0; i < dataGridView1.Columns.Count; i++)
@@ -410,7 +337,7 @@ namespace Prison_Management_System
                     FileInfo file = new FileInfo(filePath);
                     package.SaveAs(file);
 
-                    MessageBox.Show($"Search results exported successfully!\nFile saved at: {file.FullName}", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"DataBase exported successfully!\nFile saved at: {file.FullName}", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -445,7 +372,7 @@ namespace Prison_Management_System
                     using (var package = new ExcelPackage(new FileInfo(saveFileDialog.FileName)))
                     {
                         // Create a worksheet in the Excel file
-                        var worksheet = package.Workbook.Worksheets.Add("Exported Data");
+                        var worksheet = package.Workbook.Worksheets.Add("Searched Data");
 
                         // Add column headers to the first row
                         for (int col = 0; col < dataGridView1.Columns.Count; col++)
