@@ -28,6 +28,23 @@ namespace Prison_Management_System
                 this.Hide();
             }
         }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Stop and dispose timer
+            timer1.Stop();
+            timer1.Dispose();
+
+            // Other cleanup code...
+
+            // Ensure the application exits properly
+            Application.Exit();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Force exit if needed
+            Environment.Exit(0);
+        }
 
 
     }

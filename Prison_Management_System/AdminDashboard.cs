@@ -84,6 +84,16 @@ namespace Prison_Management_System
             this.Hide();
         }
 
-        
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            Application.Exit();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Force exit if needed
+            Environment.Exit(0);
+        }
     }
 }

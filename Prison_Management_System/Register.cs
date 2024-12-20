@@ -6,6 +6,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using WinForms = System.Windows.Forms;
+using System.ComponentModel;
 
 
 namespace Prison_Management_System
@@ -167,6 +168,17 @@ namespace Prison_Management_System
             Login form = new Login();
             form.Show();
             this.Hide();
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            Application.Exit();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Force exit if needed
+            Environment.Exit(0);
         }
     }
 }
