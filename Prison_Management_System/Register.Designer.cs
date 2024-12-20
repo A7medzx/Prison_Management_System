@@ -35,12 +35,12 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            fname = new TextBox();
+            lname = new TextBox();
+            id = new TextBox();
             email = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            button1 = new Button();
+            pass = new TextBox();
+            insert = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -126,57 +126,59 @@
             label6.TabIndex = 12;
             label6.Text = "ID";
             // 
+            // fname
+            // 
+            fname.BackColor = SystemColors.ScrollBar;
+            fname.Location = new Point(444, 166);
+            fname.Name = "fname";
+            fname.Size = new Size(292, 27);
+            fname.TabIndex = 13;
+            // 
+            // lname
+            // 
+            lname.BackColor = SystemColors.ScrollBar;
+            lname.Location = new Point(444, 222);
+            lname.Name = "lname";
+            lname.Size = new Size(292, 27);
+            lname.TabIndex = 14;
+            // 
+            // id
+            // 
+            id.BackColor = SystemColors.ScrollBar;
+            id.Enabled = false;
+            id.Location = new Point(444, 102);
+            id.Name = "id";
+            id.Size = new Size(292, 27);
+            id.TabIndex = 15;
+            // 
             // email
             // 
             email.BackColor = SystemColors.ScrollBar;
-            email.Location = new Point(444, 222);
+            email.Location = new Point(444, 287);
             email.Name = "email";
             email.Size = new Size(292, 27);
-            email.TabIndex = 13;
+            email.TabIndex = 16;
             // 
-            // textBox1
+            // pass
             // 
-            textBox1.BackColor = SystemColors.ScrollBar;
-            textBox1.Location = new Point(444, 161);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(292, 27);
-            textBox1.TabIndex = 14;
+            pass.BackColor = SystemColors.ScrollBar;
+            pass.Location = new Point(444, 348);
+            pass.Name = "pass";
+            pass.Size = new Size(292, 27);
+            pass.TabIndex = 17;
             // 
-            // textBox2
+            // insert
             // 
-            textBox2.BackColor = SystemColors.ScrollBar;
-            textBox2.Location = new Point(444, 102);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(292, 27);
-            textBox2.TabIndex = 15;
-            // 
-            // textBox3
-            // 
-            textBox3.BackColor = SystemColors.ScrollBar;
-            textBox3.Location = new Point(444, 287);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(292, 27);
-            textBox3.TabIndex = 16;
-            // 
-            // textBox4
-            // 
-            textBox4.BackColor = SystemColors.ScrollBar;
-            textBox4.Location = new Point(444, 348);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(292, 27);
-            textBox4.TabIndex = 17;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Image = Properties.Resources.writing;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(506, 431);
-            button1.Name = "button1";
-            button1.Size = new Size(163, 43);
-            button1.TabIndex = 18;
-            button1.Text = "Sign Up";
-            button1.UseVisualStyleBackColor = true;
+            insert.Font = new Font("Segoe UI", 12F);
+            insert.Image = Properties.Resources.writing;
+            insert.ImageAlign = ContentAlignment.MiddleLeft;
+            insert.Location = new Point(506, 431);
+            insert.Name = "insert";
+            insert.Size = new Size(163, 43);
+            insert.TabIndex = 18;
+            insert.Text = "Sign Up";
+            insert.UseVisualStyleBackColor = true;
+            insert.Click += button1_Click;
             // 
             // Register
             // 
@@ -184,12 +186,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DimGray;
             ClientSize = new Size(914, 560);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(insert);
+            Controls.Add(pass);
             Controls.Add(email);
+            Controls.Add(id);
+            Controls.Add(lname);
+            Controls.Add(fname);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -215,11 +217,11 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private TextBox fname;
+        private TextBox lname;
+        private TextBox id;
         private TextBox email;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
+        private TextBox pass;
+        private Button insert;
     }
 }
