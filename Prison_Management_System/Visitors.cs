@@ -38,24 +38,6 @@ namespace Prison_Management_System
             visitId.Text = lastID.ToString("D4");
         }
 
-        private void Visitors_Load(object sender, EventArgs e)
-        {
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            int radius = 50; // Corner radius
-            int width = insert.Width;
-            int height = insert.Height;
-
-            // Define rounded rectangle path
-            path.AddArc(0, 0, radius, radius, 180, 90); // Top-left corner
-            path.AddArc(width - radius, 0, radius, radius, 270, 90); // Top-right corner
-            path.AddArc(width - radius, height - radius, radius, radius, 0, 90); // Bottom-right corner
-            path.AddArc(0, height - radius, radius, radius, 90, 90); // Bottom-left corner
-            path.CloseFigure();
-
-            insert.Region = new Region(path);
-
-        }
-
         private void insert_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(natId.Text) || string.IsNullOrWhiteSpace(prsrId.Text) || string.IsNullOrWhiteSpace(rel.Text) || string.IsNullOrWhiteSpace(date.Text))
@@ -75,94 +57,8 @@ namespace Prison_Management_System
 
         }
 
-        private void delete_Click(object sender, EventArgs e)
-        {
-            file = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
-            sw = new StreamWriter(file);
-            sr = new StreamReader(file);
-            file.Seek(0, SeekOrigin.Begin);
-            file.Flush();
-            sw.Flush();
-            int pId = int.Parse(prsrId.Text);
-            int nId = int.Parse(natId.Text);
-            string line;
-            string[] field;
-            int count = 0;
-            while ((line = sr.ReadLine()) != null)
-            {
-                field = line.Split('|');
-                if (int.Parse(field[0]) == pId)
-                {
-                    file.Seek(count, SeekOrigin.Begin);
-                    sw.Write("*");
-                    sw.Flush();
-                    file.Flush();
-                }
-                count += line.Length + 2;
-            }
-        }
-        private void search_Click(object sender, EventArgs e)
-        {
-            file = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            sw = new StreamWriter(file);
-            sr = new StreamReader(file);
-            file.Seek(0, SeekOrigin.Begin);
-            int pId = int.Parse(prsrId.Text);
-            int nId = int.Parse(natId.Text);
-            string line;
-            string[] field;
-            while ((line = sr.ReadLine()) != null)
-            {
-                if (line.Contains("*"))
-                {
-                    continue;
-                }
-                field = line.Split('|');
-                if (int.Parse(field[0]) == pId)
-                {
-                    name.Text = field[1];
-                    natId.Text = field[2];
-                    prsrId.Text = field[3];
-                    rel.Text = field[4];
-                    date.Text = field[5];
-                    MessageBox.Show("Visit Found");
-                    return;
-                }
-            }
-            MessageBox.Show("Visit Not found");
-        }
-
         private void clear_Click(object sender, EventArgs e)
         {
-            name.Text = natId.Text = prsrId.Text = rel.Text = date.Text = "";
-        }
-        private void edit_Click(object sender, EventArgs e)
-        {
-            string[] lines = File.ReadAllLines(fileName);
-            bool found = false;
-            for (int i = 0; i < lines.Length; i++)
-            {
-                string[] parts = lines[i].Split('|');
-                if (parts[0] == natId.Text)
-                {
-                    lines[i] = $"{natId.Text}|" +
-                    $"{(string.IsNullOrWhiteSpace(prsrId.Text) ? parts[1] : prsrId.Text)}|" +
-                    $"{(string.IsNullOrWhiteSpace(name.Text) ? parts[2] : name.Text)}|" +
-                    $"{(string.IsNullOrWhiteSpace(rel.Text) ? parts[3] : rel.Text)}|" +
-                    $"{(string.IsNullOrWhiteSpace(date.Text) ? parts[4] : date.Text)}";
-                    found = true;
-                    break;
-                }
-            }
-            if (found)
-            {
-                File.WriteAllLines(fileName, lines);
-                MessageBox.Show("Visit Updated Successfully!");
-            }
-            else
-            {
-                MessageBox.Show("Visit not Found!");
-            }
             name.Clear();
             natId.Clear();
             prsrId.Clear();
@@ -232,6 +128,11 @@ namespace Prison_Management_System
             lastID++; // Increment the ID
             // Save the updated ID back to the file
             File.WriteAllText(filePath, lastID.ToString());
+        }
+
+        private void Visitors_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

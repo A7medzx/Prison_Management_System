@@ -1,4 +1,8 @@
-﻿namespace Prison_Management_System
+﻿using Prison_Management_System.Properties;
+using System.Resources;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Prison_Management_System
 {
     partial class Prisoners
     {
@@ -18,6 +22,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Prisoners));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -29,7 +34,7 @@
             duration = new TextBox();
             cell = new TextBox();
             insert = new Button();
-            clearButton = new Button();
+            clear = new Button();
             label6 = new Label();
             natId = new TextBox();
             SuspendLayout();
@@ -37,131 +42,157 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 31);
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(27, 78);
             label1.Name = "label1";
-            label1.Size = new Size(81, 20);
+            label1.Size = new Size(112, 25);
             label1.TabIndex = 1;
             label1.Text = "Prisoner ID";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(435, 35);
+            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(461, 74);
             label2.Name = "label2";
-            label2.Size = new Size(49, 20);
+            label2.Size = new Size(64, 25);
             label2.TabIndex = 1;
             label2.Text = "Name";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(11, 252);
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ControlLightLight;
+            label3.Location = new Point(461, 142);
             label3.Name = "label3";
-            label3.Size = new Size(48, 20);
-            label3.TabIndex = 2;
+            label3.Size = new Size(64, 25);
+            label3.TabIndex = 1;
             label3.Text = "Crime";
-            label3.Click += label3_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(11, 111);
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ControlLightLight;
+            label4.Location = new Point(27, 214);
             label4.Name = "label4";
-            label4.Size = new Size(131, 20);
-            label4.TabIndex = 3;
+            label4.Size = new Size(152, 21);
+            label4.TabIndex = 1;
             label4.Text = "Sentence Duration";
+            label4.Click += label4_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(435, 111);
+            label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ControlLightLight;
+            label5.Location = new Point(461, 208);
             label5.Name = "label5";
-            label5.Size = new Size(92, 20);
-            label5.TabIndex = 4;
+            label5.Size = new Size(123, 25);
+            label5.TabIndex = 1;
             label5.Text = "Cell Number";
             // 
             // id
             // 
             id.Enabled = false;
-            id.Location = new Point(127, 31);
+            id.Location = new Point(182, 78);
+            id.Margin = new Padding(3, 2, 3, 2);
             id.Name = "id";
-            id.Size = new Size(125, 27);
-            id.TabIndex = 5;
+            id.Size = new Size(173, 23);
+            id.TabIndex = 1;
             // 
             // name
             // 
-            name.Location = new Point(529, 35);
+            name.Location = new Point(624, 74);
+            name.Margin = new Padding(3, 2, 3, 2);
             name.Name = "name";
-            name.Size = new Size(125, 27);
+            name.Size = new Size(173, 23);
             name.TabIndex = 0;
             // 
             // crime
             // 
-            crime.Location = new Point(82, 225);
-            crime.Multiline = true;
+            crime.Location = new Point(624, 142);
+            crime.Margin = new Padding(3, 2, 3, 2);
             crime.Name = "crime";
-            crime.Size = new Size(617, 89);
-            crime.TabIndex = 7;
+            crime.Size = new Size(173, 23);
+            crime.TabIndex = 3;
             // 
             // duration
             // 
-            duration.Location = new Point(154, 108);
+            duration.Location = new Point(182, 214);
+            duration.Margin = new Padding(3, 2, 3, 2);
             duration.Name = "duration";
-            duration.Size = new Size(125, 27);
-            duration.TabIndex = 8;
+            duration.Size = new Size(173, 23);
+            duration.TabIndex = 3;
             // 
             // cell
             // 
-            cell.Location = new Point(529, 108);
+            cell.Location = new Point(624, 210);
+            cell.Margin = new Padding(3, 2, 3, 2);
             cell.Name = "cell";
-            cell.Size = new Size(125, 27);
-            cell.TabIndex = 9;
+            cell.Size = new Size(173, 23);
+            cell.TabIndex = 3;
             // 
             // insert
             // 
-            insert.Location = new Point(82, 360);
+            insert.BackgroundImage = (Image)resources.GetObject("insert.BackgroundImage");
+            insert.BackgroundImageLayout = ImageLayout.None;
+            insert.ImageAlign = ContentAlignment.MiddleLeft;
+            insert.Location = new Point(245, 304);
+            insert.Margin = new Padding(3, 2, 3, 2);
             insert.Name = "insert";
-            insert.Size = new Size(94, 29);
-            insert.TabIndex = 10;
-            insert.Text = "Add";
+            insert.Size = new Size(102, 42);
+            insert.TabIndex = 4;
+            insert.Text = "Insert";
             insert.UseVisualStyleBackColor = true;
             insert.Click += insert_Click;
             // 
-            // clearButton
+            // clear
             // 
-            clearButton.Location = new Point(361, 360);
-            clearButton.Name = "clearButton";
-            clearButton.Size = new Size(94, 29);
-            clearButton.TabIndex = 11;
-            clearButton.Text = "Clear";
-            clearButton.UseVisualStyleBackColor = true;
-            clearButton.Click += clearButton_Click;
+            clear.BackgroundImage = (Image)resources.GetObject("clear.BackgroundImage");
+            clear.BackgroundImageLayout = ImageLayout.None;
+            clear.ImageAlign = ContentAlignment.MiddleLeft;
+            clear.Location = new Point(514, 304);
+            clear.Margin = new Padding(3, 2, 3, 2);
+            clear.Name = "clear";
+            clear.Size = new Size(102, 42);
+            clear.TabIndex = 5;
+            clear.Text = "Clear";
+            clear.UseVisualStyleBackColor = true;
+            clear.Click += clear_Click;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(11, 181);
+            label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.ControlLightLight;
+            label6.Location = new Point(27, 142);
             label6.Name = "label6";
-            label6.Size = new Size(142, 20);
-            label6.TabIndex = 15;
-            label6.Text = "Prisoner National ID";
+            label6.Size = new Size(113, 25);
+            label6.TabIndex = 1;
+            label6.Text = "National ID";
             // 
             // natId
             // 
-            natId.Location = new Point(182, 167);
-            natId.Multiline = true;
+            natId.Location = new Point(182, 142);
+            natId.Margin = new Padding(3, 2, 3, 2);
             natId.Name = "natId";
-            natId.Size = new Size(273, 33);
-            natId.TabIndex = 16;
+            natId.Size = new Size(173, 23);
+            natId.TabIndex = 3;
             // 
             // Prisoners
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(869, 493);
+            BackColor = Color.FromArgb(46, 51, 73);
+            ClientSize = new Size(856, 410);
+            ControlBox = false;
             Controls.Add(natId);
             Controls.Add(label6);
-            Controls.Add(clearButton);
+            Controls.Add(clear);
             Controls.Add(insert);
             Controls.Add(cell);
             Controls.Add(duration);
@@ -174,8 +205,9 @@
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Prisoners";
-            Text = "`";
+            Text = "Prisoners";
             Load += Prisoners_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -194,7 +226,7 @@
         private TextBox duration;
         private TextBox cell;
         private Button insert;
-        private Button clearButton;
+        private Button clear;
         private Label label6;
         private TextBox natId;
     }

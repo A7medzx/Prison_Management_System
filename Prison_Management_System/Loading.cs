@@ -23,15 +23,12 @@ namespace Prison_Management_System
             if (panel2.Width >= 605)
             {
                 timer1.Stop();
-                Form1 fm1 = new Form1();
+                Login fm1 = new Login();
                 fm1.Show();
                 this.Hide();
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }

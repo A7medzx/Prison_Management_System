@@ -63,9 +63,9 @@
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(228, 49);
+            pictureBox1.Location = new Point(172, 87);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(123, 125);
+            pictureBox1.Size = new Size(241, 98);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
@@ -75,14 +75,13 @@
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Consolas", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(57, 211);
+            textBox1.Location = new Point(51, 203);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(504, 29);
             textBox1.TabIndex = 3;
             textBox1.TabStop = false;
             textBox1.Text = "Welcome to SAs Prison Managment System";
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // Loading
             // 

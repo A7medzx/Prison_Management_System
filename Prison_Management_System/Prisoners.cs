@@ -59,13 +59,13 @@ namespace Prison_Management_System
         {
 
         }
-        
-        
-        private void clearButton_Click(object sender, EventArgs e)
+
+
+        private void clear_Click(object sender, EventArgs e)
         {
             name.Text = crime.Text = duration.Text = cell.Text = natId.Text = "";
         }
-        
+
 
         private void InitializeNavigationMap()
         {
@@ -133,6 +133,16 @@ namespace Prison_Management_System
         }
 
         private void searchId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cell_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
