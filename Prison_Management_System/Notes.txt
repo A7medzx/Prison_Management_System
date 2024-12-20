@@ -14,7 +14,8 @@ Ahmed
 
 3bso
 {
-	login form
+	done register form 
+	fadel el login and dashboard
 }
 
 
