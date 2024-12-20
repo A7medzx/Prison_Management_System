@@ -89,5 +89,12 @@ namespace Prison_Management_System
         {
 
         }
+
+        private void register_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+            this.Hide();
+        }
     }
 }
