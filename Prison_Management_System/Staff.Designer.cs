@@ -37,7 +37,7 @@ namespace Prison_Management_System
             // 
             clear.BackgroundImage = (Image)resources.GetObject("clear.BackgroundImage");
             clear.BackgroundImageLayout = ImageLayout.None;
-            clear.Location = new Point(514, 304);
+            clear.Location = new Point(540, 351);
             clear.Name = "clear";
             clear.Size = new Size(102, 42);
             clear.TabIndex = 0;
@@ -50,7 +50,7 @@ namespace Prison_Management_System
             insert.BackgroundImage = (Image)resources.GetObject("insert.BackgroundImage");
             insert.BackgroundImageLayout = ImageLayout.None;
             insert.ImageAlign = ContentAlignment.MiddleLeft;
-            insert.Location = new Point(245, 304);
+            insert.Location = new Point(271, 351);
             insert.Name = "insert";
             insert.Size = new Size(102, 42);
             insert.TabIndex = 1;
@@ -60,28 +60,28 @@ namespace Prison_Management_System
             // 
             // shift
             // 
-            shift.Location = new Point(339, 223);
+            shift.Location = new Point(365, 270);
             shift.Name = "shift";
             shift.Size = new Size(197, 23);
             shift.TabIndex = 2;
             // 
             // role
             // 
-            role.Location = new Point(624, 142);
+            role.Location = new Point(650, 189);
             role.Name = "role";
             role.Size = new Size(173, 23);
             role.TabIndex = 3;
             // 
             // name
             // 
-            name.Location = new Point(624, 74);
+            name.Location = new Point(650, 121);
             name.Name = "name";
             name.Size = new Size(173, 23);
             name.TabIndex = 4;
             // 
             // natId
             // 
-            natId.Location = new Point(182, 142);
+            natId.Location = new Point(208, 189);
             natId.Name = "natId";
             natId.Size = new Size(173, 23);
             natId.TabIndex = 6;
@@ -91,7 +91,7 @@ namespace Prison_Management_System
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
             label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(245, 223);
+            label4.Location = new Point(271, 270);
             label4.Name = "label4";
             label4.Size = new Size(53, 25);
             label4.TabIndex = 8;
@@ -102,7 +102,7 @@ namespace Prison_Management_System
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(27, 142);
+            label2.Location = new Point(53, 189);
             label2.Name = "label2";
             label2.Size = new Size(113, 25);
             label2.TabIndex = 9;
@@ -113,7 +113,7 @@ namespace Prison_Management_System
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(461, 142);
+            label3.Location = new Point(487, 189);
             label3.Name = "label3";
             label3.Size = new Size(51, 25);
             label3.TabIndex = 10;
@@ -124,7 +124,7 @@ namespace Prison_Management_System
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(461, 74);
+            label1.Location = new Point(487, 121);
             label1.Name = "label1";
             label1.Size = new Size(64, 25);
             label1.TabIndex = 11;
@@ -135,7 +135,7 @@ namespace Prison_Management_System
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
             label5.ForeColor = SystemColors.ControlLightLight;
-            label5.Location = new Point(27, 78);
+            label5.Location = new Point(53, 125);
             label5.Name = "label5";
             label5.Size = new Size(32, 25);
             label5.TabIndex = 7;
@@ -144,7 +144,7 @@ namespace Prison_Management_System
             // id
             // 
             id.Enabled = false;
-            id.Location = new Point(182, 78);
+            id.Location = new Point(208, 125);
             id.Name = "id";
             id.Size = new Size(173, 23);
             id.TabIndex = 5;
@@ -154,7 +154,7 @@ namespace Prison_Management_System
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(856, 410);
+            ClientSize = new Size(904, 477);
             ControlBox = false;
             Controls.Add(clear);
             Controls.Add(insert);

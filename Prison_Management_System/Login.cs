@@ -11,7 +11,7 @@ namespace Prison_Management_System
         {
 
         }
-
+        public static string sharedVariable = "";
         private void button1_Click(object sender, EventArgs e)
         {
             string emailInput = email.Text.Trim();
@@ -44,11 +44,17 @@ namespace Prison_Management_System
 
                 string emailField = fields[3].Trim();
                 string passwordField = fields[4].Trim();
+                
 
                 if (emailField.Equals(emailInput, StringComparison.OrdinalIgnoreCase))
                 {
                     if (passwordField == passwordInput)
                     {
+                        
+                        string firstname = fields[1].Trim();
+                        string username = firstname;
+                        sharedVariable = ""+username;
+
                         // Check if this is the admin user (first record)
                         if (line == lines[0])
                         {
@@ -88,6 +94,12 @@ namespace Prison_Management_System
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void YourForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+            Application.Exit();
         }
     }
 }

@@ -28,68 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            panel1 = new Panel();
-            label1 = new Label();
-            pictureBox1 = new PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            panel2 = new Panel();
+            pictureBox2 = new PictureBox();
+            label2 = new Label();
+            label3 = new Label();
             BtnPrisoners = new Button();
             BtnVisitors = new Button();
             BtnStaff = new Button();
             BtnDataGridView = new Button();
-            flowLayoutPanel1.SuspendLayout();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            PnlPrisonersForm2 = new Panel();
+            flowLayoutPanel2.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanel2
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.None;
-            flowLayoutPanel1.BackColor = Color.FromArgb(24, 30, 54);
-            flowLayoutPanel1.Controls.Add(panel1);
-            flowLayoutPanel1.Controls.Add(BtnPrisoners);
-            flowLayoutPanel1.Controls.Add(BtnVisitors);
-            flowLayoutPanel1.Controls.Add(BtnStaff);
-            flowLayoutPanel1.Controls.Add(BtnDataGridView);
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(234, 800);
-            flowLayoutPanel1.TabIndex = 0;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            flowLayoutPanel2.Anchor = AnchorStyles.None;
+            flowLayoutPanel2.BackColor = Color.FromArgb(24, 30, 54);
+            flowLayoutPanel2.Controls.Add(panel2);
+            flowLayoutPanel2.Controls.Add(BtnPrisoners);
+            flowLayoutPanel2.Controls.Add(BtnVisitors);
+            flowLayoutPanel2.Controls.Add(BtnStaff);
+            flowLayoutPanel2.Controls.Add(BtnDataGridView);
+            flowLayoutPanel2.Location = new Point(1, 0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(211, 583);
+            flowLayoutPanel2.TabIndex = 2;
             // 
-            // panel1
+            // panel2
             // 
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(3, 4);
-            panel1.Margin = new Padding(3, 4, 3, 4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(227, 200);
-            panel1.TabIndex = 0;
+            panel2.Controls.Add(pictureBox2);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label3);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(199, 150);
+            panel2.TabIndex = 0;
             // 
-            // label1
+            // pictureBox2
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(0, 156, 149);
-            label1.Location = new Point(35, 136);
-            label1.Name = "label1";
-            label1.Size = new Size(164, 41);
-            label1.TabIndex = 1;
-            label1.Text = "UserName";
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(62, 8);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(70, 55);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // label2
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(58, 12);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(103, 120);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(0, 156, 149);
+            label2.Location = new Point(29, 66);
+            label2.Name = "label2";
+            label2.Size = new Size(136, 37);
+            label2.TabIndex = 2;
+            label2.Text = "Welcome";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(0, 156, 149);
+            label3.Location = new Point(33, 100);
+            label3.Name = "label3";
+            label3.Size = new Size(132, 32);
+            label3.TabIndex = 1;
+            label3.Text = "UserName";
             // 
             // BtnPrisoners
             // 
@@ -100,15 +110,15 @@
             BtnPrisoners.ForeColor = Color.FromArgb(0, 126, 249);
             BtnPrisoners.Image = (Image)resources.GetObject("BtnPrisoners.Image");
             BtnPrisoners.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnPrisoners.Location = new Point(3, 212);
-            BtnPrisoners.Margin = new Padding(3, 4, 3, 40);
+            BtnPrisoners.Location = new Point(3, 159);
+            BtnPrisoners.Margin = new Padding(3, 3, 3, 30);
             BtnPrisoners.Name = "BtnPrisoners";
-            BtnPrisoners.Size = new Size(227, 93);
+            BtnPrisoners.Size = new Size(199, 70);
             BtnPrisoners.TabIndex = 1;
             BtnPrisoners.Text = "Prisoners";
             BtnPrisoners.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnPrisoners.UseVisualStyleBackColor = true;
-            BtnPrisoners.Click += BtnPrisoners_Click;
+            BtnPrisoners.Click += BtnPrisoners_Click_1;
             // 
             // BtnVisitors
             // 
@@ -119,14 +129,15 @@
             BtnVisitors.ForeColor = Color.FromArgb(0, 126, 249);
             BtnVisitors.Image = (Image)resources.GetObject("BtnVisitors.Image");
             BtnVisitors.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnVisitors.Location = new Point(3, 349);
-            BtnVisitors.Margin = new Padding(3, 4, 3, 40);
+            BtnVisitors.Location = new Point(3, 262);
+            BtnVisitors.Margin = new Padding(3, 3, 3, 30);
             BtnVisitors.Name = "BtnVisitors";
-            BtnVisitors.Size = new Size(227, 93);
+            BtnVisitors.Size = new Size(199, 70);
             BtnVisitors.TabIndex = 1;
             BtnVisitors.Text = "Visitors";
             BtnVisitors.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnVisitors.UseVisualStyleBackColor = true;
+            BtnVisitors.Click += BtnVisitors_Click;
             // 
             // BtnStaff
             // 
@@ -137,14 +148,15 @@
             BtnStaff.ForeColor = Color.FromArgb(0, 126, 249);
             BtnStaff.Image = (Image)resources.GetObject("BtnStaff.Image");
             BtnStaff.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnStaff.Location = new Point(3, 486);
-            BtnStaff.Margin = new Padding(3, 4, 3, 40);
+            BtnStaff.Location = new Point(3, 365);
+            BtnStaff.Margin = new Padding(3, 3, 3, 30);
             BtnStaff.Name = "BtnStaff";
-            BtnStaff.Size = new Size(227, 93);
+            BtnStaff.Size = new Size(199, 70);
             BtnStaff.TabIndex = 1;
             BtnStaff.Text = "Staff";
             BtnStaff.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnStaff.UseVisualStyleBackColor = true;
+            BtnStaff.Click += BtnStaff_Click;
             // 
             // BtnDataGridView
             // 
@@ -155,44 +167,53 @@
             BtnDataGridView.ForeColor = Color.FromArgb(0, 126, 249);
             BtnDataGridView.Image = (Image)resources.GetObject("BtnDataGridView.Image");
             BtnDataGridView.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnDataGridView.Location = new Point(3, 623);
-            BtnDataGridView.Margin = new Padding(3, 4, 3, 67);
+            BtnDataGridView.Location = new Point(3, 468);
+            BtnDataGridView.Margin = new Padding(3, 3, 3, 50);
             BtnDataGridView.Name = "BtnDataGridView";
-            BtnDataGridView.Size = new Size(227, 93);
+            BtnDataGridView.Size = new Size(199, 70);
             BtnDataGridView.TabIndex = 1;
             BtnDataGridView.Text = "DataGridView";
             BtnDataGridView.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnDataGridView.UseVisualStyleBackColor = true;
+            BtnDataGridView.Click += BtnDataGridView_Click;
             // 
-            // Dashboard
+            // PnlPrisonersForm2
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            PnlPrisonersForm2.Location = new Point(251, 26);
+            PnlPrisonersForm2.Name = "PnlPrisonersForm2";
+            PnlPrisonersForm2.Size = new Size(920, 515);
+            PnlPrisonersForm2.TabIndex = 3;
+            // 
+            // AdminDashboard
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1143, 800);
-            Controls.Add(flowLayoutPanel1);
+            ClientSize = new Size(1189, 558);
+            Controls.Add(PnlPrisonersForm2);
+            Controls.Add(flowLayoutPanel2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "Dashboard";
+            Name = "AdminDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             Load += Dashboard_Load;
-            flowLayoutPanel1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            flowLayoutPanel2.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Panel panel1;
-        private PictureBox pictureBox1;
-        private Label label1;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Panel panel2;
+        private PictureBox pictureBox2;
+        private Label label2;
+        private Label label3;
         private Button BtnPrisoners;
         private Button BtnVisitors;
         private Button BtnStaff;
         private Button BtnDataGridView;
+        private Panel PnlPrisonersForm2;
     }
 }
