@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
             buttonLoadFile = new Button();
             comboBoxFiles = new ComboBox();
             dataGridView1 = new DataGridView();
@@ -43,10 +43,9 @@
             // 
             // buttonLoadFile
             // 
-            buttonLoadFile.Location = new Point(891, 536);
-            buttonLoadFile.Margin = new Padding(3, 4, 3, 4);
+            buttonLoadFile.Location = new Point(793, 416);
             buttonLoadFile.Name = "buttonLoadFile";
-            buttonLoadFile.Size = new Size(131, 33);
+            buttonLoadFile.Size = new Size(115, 25);
             buttonLoadFile.TabIndex = 1;
             buttonLoadFile.Text = "Load File";
             buttonLoadFile.UseVisualStyleBackColor = true;
@@ -55,10 +54,9 @@
             // comboBoxFiles
             // 
             comboBoxFiles.FormattingEnabled = true;
-            comboBoxFiles.Location = new Point(719, 537);
-            comboBoxFiles.Margin = new Padding(3, 4, 3, 4);
+            comboBoxFiles.Location = new Point(642, 417);
             comboBoxFiles.Name = "comboBoxFiles";
-            comboBoxFiles.Size = new Size(165, 28);
+            comboBoxFiles.Size = new Size(145, 23);
             comboBoxFiles.TabIndex = 2;
             // 
             // dataGridView1
@@ -68,37 +66,36 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.BackgroundColor = Color.FromArgb(46, 51, 73);
             dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = SystemColors.Control;
+            dataGridViewCellStyle15.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle15.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = SystemColors.Window;
+            dataGridViewCellStyle16.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle16.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle16;
             dataGridView1.GridColor = SystemColors.MenuHighlight;
-            dataGridView1.Location = new Point(10, 12);
+            dataGridView1.Location = new Point(9, 9);
             dataGridView1.Margin = new Padding(0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 60;
-            dataGridView1.Size = new Size(1031, 520);
+            dataGridView1.Size = new Size(902, 390);
             dataGridView1.TabIndex = 3;
             // 
             // buttonEdit
             // 
-            buttonEdit.Location = new Point(719, 577);
-            buttonEdit.Margin = new Padding(3, 4, 3, 4);
+            buttonEdit.Location = new Point(642, 447);
             buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(166, 33);
+            buttonEdit.Size = new Size(145, 25);
             buttonEdit.TabIndex = 4;
             buttonEdit.Text = "Edit Record";
             buttonEdit.UseVisualStyleBackColor = true;
@@ -106,10 +103,9 @@
             // 
             // buttonDelete
             // 
-            buttonDelete.Location = new Point(891, 577);
-            buttonDelete.Margin = new Padding(3, 4, 3, 4);
+            buttonDelete.Location = new Point(793, 447);
             buttonDelete.Name = "buttonDelete";
-            buttonDelete.Size = new Size(131, 33);
+            buttonDelete.Size = new Size(115, 25);
             buttonDelete.TabIndex = 5;
             buttonDelete.Text = "Delete Record";
             buttonDelete.UseVisualStyleBackColor = true;
@@ -117,20 +113,18 @@
             // 
             // textBoxSearch
             // 
-            textBoxSearch.Location = new Point(11, 560);
-            textBoxSearch.Margin = new Padding(3, 4, 3, 4);
+            textBoxSearch.Location = new Point(9, 418);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Search here...";
-            textBoxSearch.Size = new Size(228, 27);
+            textBoxSearch.Size = new Size(200, 23);
             textBoxSearch.TabIndex = 6;
             textBoxSearch.KeyDown += TextBoxSearch_KeyDown;
             // 
             // btnExportToExcel
             // 
-            btnExportToExcel.Location = new Point(773, 619);
-            btnExportToExcel.Margin = new Padding(3, 4, 3, 4);
+            btnExportToExcel.Location = new Point(689, 478);
             btnExportToExcel.Name = "btnExportToExcel";
-            btnExportToExcel.Size = new Size(229, 31);
+            btnExportToExcel.Size = new Size(200, 23);
             btnExportToExcel.TabIndex = 7;
             btnExportToExcel.Text = "Export Data to Excel";
             btnExportToExcel.UseVisualStyleBackColor = true;
@@ -138,21 +132,20 @@
             // 
             // searchedtoexcelbtn
             // 
-            searchedtoexcelbtn.Location = new Point(11, 599);
-            searchedtoexcelbtn.Margin = new Padding(3, 4, 3, 4);
+            searchedtoexcelbtn.Location = new Point(9, 447);
             searchedtoexcelbtn.Name = "searchedtoexcelbtn";
-            searchedtoexcelbtn.Size = new Size(229, 31);
+            searchedtoexcelbtn.Size = new Size(200, 23);
             searchedtoexcelbtn.TabIndex = 8;
             searchedtoexcelbtn.Text = "Export Search Results to Excel";
             searchedtoexcelbtn.UseVisualStyleBackColor = true;
             searchedtoexcelbtn.Click += searchedtoexcelbtn_Click;
             // 
-            // MainForm
+            // AdminGrid
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1051, 667);
+            ClientSize = new Size(920, 500);
             Controls.Add(searchedtoexcelbtn);
             Controls.Add(btnExportToExcel);
             Controls.Add(textBoxSearch);
@@ -162,8 +155,7 @@
             Controls.Add(comboBoxFiles);
             Controls.Add(buttonLoadFile);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "MainForm";
+            Name = "AdminGrid";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             Load += MainForm_Load;
