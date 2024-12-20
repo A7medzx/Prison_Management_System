@@ -120,6 +120,7 @@
             register.TabIndex = 7;
             register.Text = "Register";
             register.UseVisualStyleBackColor = true;
+            register.Click += register_Click_1;
             // 
             // Login
             // 
