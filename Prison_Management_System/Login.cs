@@ -11,7 +11,6 @@ namespace Prison_Management_System
         {
             InitializeComponent();
             InitializeNavigationMap();
-
         }
 
         private void label1_Click(object sender, EventArgs e)
