@@ -221,7 +221,7 @@ namespace Prison_Management_System
 
                     updatedLine = $"{newId}|{newName}|{newNatId}|{newRole}|{newShift}";
                 }
-                else if (selectedFile.ToLower().Contains("User") || selectedFile.ToLower().Contains("Users"))
+                else if (selectedFile.ToLower().Contains("users") || selectedFile.ToLower().Contains("user"))
                 {
                     string newId = Microsoft.VisualBasic.Interaction.InputBox("Enter new User ID", "Edit Record", lineParts[0]);
                     string newFirstName = Microsoft.VisualBasic.Interaction.InputBox("Enter new First Name", "Edit Record", lineParts[2]);
