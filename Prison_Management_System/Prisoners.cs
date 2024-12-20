@@ -41,7 +41,7 @@ namespace Prison_Management_System
         }
         private void insert_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(id.Text) || string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(crime.Text) || string.IsNullOrWhiteSpace(duration.Text) || string.IsNullOrWhiteSpace(cell.Text) || string.IsNullOrWhiteSpace(natId.Text))
+            if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(crime.Text) || string.IsNullOrWhiteSpace(duration.Text) || string.IsNullOrWhiteSpace(cell.Text) || string.IsNullOrWhiteSpace(natId.Text))
             {
                 MessageBox.Show("Please Fill in All Fields!");
                 return;
@@ -54,6 +54,8 @@ namespace Prison_Management_System
             id.Text = name.Text = crime.Text = duration.Text = cell.Text = natId.Text = "";
             GenerateNewID();
             id.Text = lastID.ToString("D4");
+            if (string.IsNullOrWhiteSpace(name.Text) && string.IsNullOrWhiteSpace(crime.Text) && string.IsNullOrWhiteSpace(duration.Text) && string.IsNullOrWhiteSpace(cell.Text) && string.IsNullOrWhiteSpace(natId.Text))
+                MessageBox.Show("Prisoner Inserted Successfully!");
         }
         private void label3_Click(object sender, EventArgs e)
         {

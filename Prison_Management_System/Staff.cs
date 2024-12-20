@@ -11,6 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using WinForms = System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 
 namespace Prison_Management_System
@@ -52,6 +53,8 @@ namespace Prison_Management_System
             natId.Text = name.Text = role.Text = shift.Text = natId.Text = "";
             GenerateNewID();
             id.Text = lastID.ToString("D4");
+            if (string.IsNullOrWhiteSpace(name.Text) && string.IsNullOrWhiteSpace(natId.Text) && string.IsNullOrWhiteSpace(role.Text) && string.IsNullOrWhiteSpace(shift.Text))
+                MessageBox.Show("Staff Member Inserted Successfully!");
         }
 
         private void clear_Click(object sender, EventArgs e)

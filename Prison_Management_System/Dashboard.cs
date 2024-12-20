@@ -81,5 +81,11 @@ namespace Prison_Management_System
             Application.Exit();
         }
 
+        private void logout_Click(object sender, EventArgs e)
+        {
+            Login form = new Login();
+            form.Show();
+            this.Hide();
+        }
     }
 }

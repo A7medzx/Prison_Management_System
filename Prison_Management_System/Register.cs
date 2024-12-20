@@ -2,15 +2,22 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using WinForms = System.Windows.Forms;
+
 
 namespace Prison_Management_System
 {
     public partial class Register : Form
     {
+        private Dictionary<WinForms.TextBox, WinForms.TextBox> navigationMap;
+
         public Register()
         {
             InitializeComponent();
+            InitializeNavigationMap();
         }
 
         FileStream myfile;
@@ -26,16 +33,16 @@ namespace Prison_Management_System
             id.ReadOnly = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void insert_Click(object sender, EventArgs e)
         {
 
             // Check for empty fields
-            if (string.IsNullOrWhiteSpace(fname.Text) ||
-                string.IsNullOrWhiteSpace(lname.Text) ||
+            if (string.IsNullOrWhiteSpace(fName.Text) ||
+                string.IsNullOrWhiteSpace(lName.Text) ||
                 string.IsNullOrWhiteSpace(email.Text) ||
                 string.IsNullOrWhiteSpace(pass.Text))
             {
-                MessageBox.Show("All fields are required. Please fill in all fields.",
+                MessageBox.Show("All Fields are Required. Please Fill in All Fields.",
                     "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Keep the form open, don't proceed
             }
@@ -43,14 +50,14 @@ namespace Prison_Management_System
             // Validate password
             if (!ValidatePassword(pass.Text))
             {
-                MessageBox.Show("Password must be at least 8 characters long and include:\n- At least one uppercase letter\n- At least one lowercase letter\n- At least one number\n- At least one special character",
+                MessageBox.Show("Password Must be at Least 8 Characters Long and Include:\n- at Least One Uppercase Letter\n- at Least One Lowercase Letter\n- at Least one number\n- at least one special character",
                     "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Keep the form open, don't proceed
             }
 
             try
             {
-                string data = id.Text + "|" + fname.Text + "|" + lname.Text + "|" + email.Text + "|" + pass.Text;
+                string data = id.Text + "|" + fName.Text + "|" + lName.Text + "|" + email.Text + "|" + pass.Text;
 
                 myfile = new FileStream(filename, FileMode.Append, FileAccess.Write);
                 sr = new StreamWriter(myfile);
@@ -60,9 +67,9 @@ namespace Prison_Management_System
 
                 File.WriteAllText(idFile, id.Text);
 
-                fname.Text = lname.Text = email.Text = pass.Text = "";
+                fName.Text = lName.Text = email.Text = pass.Text = "";
 
-                MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("User Registered Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Login form = new Login();
                 form.Show();
@@ -70,10 +77,11 @@ namespace Prison_Management_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while saving the data: " + ex.Message,
+                MessageBox.Show("an Error Occurred While Saving The Data: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private int GenerateNewId()
         {
             int currentId = 1000;
@@ -119,19 +127,46 @@ namespace Prison_Management_System
             return true;
         }
 
+        private void InitializeNavigationMap()
+        {
+            // Define the navigation map
 
+            navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
+            {
+                {fName, lName},
+                {lName, email},
+                {email, pass},
+                {pass, fName} // Loop back to the first textbox
+            };
 
+            foreach (var pair in navigationMap.Keys)
+            {
+                pair.KeyDown += TextBox_KeyDown;
+            }
+        }
 
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
 
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Prevent the "ding" sound
 
+                var currentTextBox = sender as WinForms.TextBox;
 
+                if (currentTextBox != null && navigationMap.ContainsKey(currentTextBox))
+                {
+                    // Move to the next textbox in the map
+                    navigationMap[currentTextBox].Focus();
+                }
+            }
+        }
 
-
-
-
-
-
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Login form = new Login();
+            form.Show();
+            this.Hide();
+        }
     }
 }

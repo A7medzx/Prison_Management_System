@@ -1,10 +1,17 @@
+using System.Diagnostics.Metrics;
+using System.Xml.Linq;
+using WinForms = System.Windows.Forms;
+
 namespace Prison_Management_System
 {
     public partial class Login : Form
     {
+        private Dictionary<WinForms.TextBox, WinForms.TextBox> navigationMap;
         public Login()
         {
             InitializeComponent();
+            InitializeNavigationMap();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -12,7 +19,7 @@ namespace Prison_Management_System
 
         }
         public static string sharedVariable = "";
-        private void button1_Click(object sender, EventArgs e)
+        private void insert_Click(object sender, EventArgs e)
         {
             string emailInput = email.Text.Trim();
             string passwordInput = password.Text.Trim();
@@ -20,7 +27,7 @@ namespace Prison_Management_System
             // Check if fields are empty
             if (string.IsNullOrEmpty(emailInput) || string.IsNullOrEmpty(passwordInput))
             {
-                MessageBox.Show("Both fields must be filled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Both Fields Must be Filled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -29,7 +36,7 @@ namespace Prison_Management_System
 
             if (!File.Exists(filePath))
             {
-                MessageBox.Show("Users records file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Users Records File not Found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -64,8 +71,7 @@ namespace Prison_Management_System
                             adminForm.Show();
                         }
                         else
-                        {
-                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        { 
                             // Load user panel
                             Dashboard userForm = new Dashboard();
                             userForm.Show();
@@ -76,14 +82,14 @@ namespace Prison_Management_System
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Incorrect Password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
             }
 
             // If no matching email is found
-            MessageBox.Show("Email not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Email not Found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -113,6 +119,39 @@ namespace Prison_Management_System
         {
             Environment.Exit(0);
             Application.Exit();
+        }
+
+        private void InitializeNavigationMap()
+        {
+            // Define the navigation map
+
+            navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
+            {
+                {email, password},
+                {password, email} // Loop back to the first textbox
+            };
+
+            foreach (var pair in navigationMap.Keys)
+            {
+                pair.KeyDown += TextBox_KeyDown;
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Prevent the "ding" sound
+
+                var currentTextBox = sender as WinForms.TextBox;
+
+                if (currentTextBox != null && navigationMap.ContainsKey(currentTextBox))
+                {
+                    // Move to the next textbox in the map
+                    navigationMap[currentTextBox].Focus();
+                }
+            }
         }
     }
 }

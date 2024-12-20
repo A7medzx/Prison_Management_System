@@ -17,8 +17,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using WinForms = System.Windows.Forms;
 
-
-
 namespace Prison_Management_System
 {
     public partial class Visitors : Form
@@ -36,11 +34,12 @@ namespace Prison_Management_System
             InitializeNavigationMap();
             LoadLastID();
             visitId.Text = lastID.ToString("D4");
+            currentDate();
         }
 
         private void insert_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(natId.Text) || string.IsNullOrWhiteSpace(prsrId.Text) || string.IsNullOrWhiteSpace(rel.Text) || string.IsNullOrWhiteSpace(date.Text))
+            if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(natId.Text) || string.IsNullOrWhiteSpace(prsrId.Text) || string.IsNullOrWhiteSpace(rel.Text))
             {
                 MessageBox.Show("Please Fill in All Fields!");
                 return;
@@ -54,7 +53,8 @@ namespace Prison_Management_System
             name.Text = natId.Text = prsrId.Text = rel.Text = date.Text = "";
             GenerateNewID();
             visitId.Text = lastID.ToString("D4");
-
+            if (string.IsNullOrWhiteSpace(name.Text) && string.IsNullOrWhiteSpace(natId.Text) && string.IsNullOrWhiteSpace(prsrId.Text) && string.IsNullOrWhiteSpace(rel.Text))
+                MessageBox.Show("Visit Inserted Successfully!");
         }
 
         private void clear_Click(object sender, EventArgs e)
@@ -71,12 +71,11 @@ namespace Prison_Management_System
             // Define the navigation map
 
             navigationMap = new Dictionary<WinForms.TextBox, WinForms.TextBox>
-        {
-            {name, natId},
-            {natId, prsrId},
-            {prsrId, rel},
-            {rel, date},
-            {date, name} // Loop back to the first textbox
+            {
+                {name, natId},
+                {natId, prsrId},
+                {prsrId, rel},
+                {rel, name} // Loop back to the first textbox
             };
 
             foreach (var pair in navigationMap.Keys)
@@ -134,5 +133,11 @@ namespace Prison_Management_System
         {
 
         }
+
+        private void currentDate()
+        {
+            date.Text = DateTime.Now.ToString("dd-MM-yyyy");
+        }
+
     }
 }

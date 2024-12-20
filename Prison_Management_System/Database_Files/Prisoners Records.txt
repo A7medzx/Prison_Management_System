@@ -98,3 +98,4 @@
 0097|30198056712345|Samira Ahmed|Robbery|7|D16
 0098|30199012345678|Mohsen Samir|Murder|25|E12
 0099|30200098761234|Amr Fatima|Assault|2|B25
+0100|Mohamed|Ahmed|Horny|555|555

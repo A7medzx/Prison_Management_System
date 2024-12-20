@@ -17,7 +17,7 @@ namespace Prison_Management_System
         {
             InitializeComponent();
             string value = Login.sharedVariable;
-            label3.Text = value;
+            label6.Text = value;
             this.PnlPrisonersForm2.Controls.Clear();
             Prisoners frmprisoners = new Prisoners() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmprisoners.FormBorderStyle = FormBorderStyle.None;
@@ -76,5 +76,14 @@ namespace Prison_Management_System
             Environment.Exit(0);
             Application.Exit();
         }
+
+        private void log_out_Click(object sender, EventArgs e)
+        {
+            Login form = new Login();
+            form.Show();
+            this.Hide();
+        }
+
+        
     }
 }
