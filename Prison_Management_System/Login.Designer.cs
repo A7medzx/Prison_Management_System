@@ -17,7 +17,6 @@
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             label1 = new Label();
             label2 = new Label();
             email = new TextBox();
@@ -25,6 +24,7 @@
             button1 = new Button();
             label3 = new Label();
             panel1 = new Panel();
+            register = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,9 +75,8 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 12F);
-            button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(440, 279);
+            button1.Location = new Point(300, 288);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(144, 44);
@@ -110,19 +109,32 @@
             panel1.Size = new Size(250, 458);
             panel1.TabIndex = 6;
             // 
-            // Form1
+            // register
+            // 
+            register.Image = Properties.Resources.add_user;
+            register.ImageAlign = ContentAlignment.MiddleLeft;
+            register.Location = new Point(577, 288);
+            register.Margin = new Padding(3, 2, 3, 2);
+            register.Name = "register";
+            register.Size = new Size(144, 44);
+            register.TabIndex = 7;
+            register.Text = "Register";
+            register.UseVisualStyleBackColor = true;
+            // 
+            // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DimGray;
             ClientSize = new Size(785, 420);
+            Controls.Add(register);
             Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(password);
             Controls.Add(email);
             Controls.Add(label2);
-            Name = "Form1";
+            Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += Form1_Load;
@@ -141,5 +153,6 @@
         private Button button1;
         private Label label3;
         private Panel panel1;
+        private Button register;
     }
 }
