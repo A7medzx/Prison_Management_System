@@ -192,7 +192,7 @@
             ClientSize = new Size(1189, 558);
             Controls.Add(PnlPrisonersForm2);
             Controls.Add(flowLayoutPanel2);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "AdminDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
