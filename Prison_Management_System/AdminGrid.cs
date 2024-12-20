@@ -224,10 +224,10 @@ namespace Prison_Management_System
                 else if (selectedFile.ToLower().Contains("users") || selectedFile.ToLower().Contains("user"))
                 {
                     string newId = Microsoft.VisualBasic.Interaction.InputBox("Enter new User ID", "Edit Record", lineParts[0]);
-                    string newFirstName = Microsoft.VisualBasic.Interaction.InputBox("Enter new First Name", "Edit Record", lineParts[2]);
+                    string newFirstName = Microsoft.VisualBasic.Interaction.InputBox("Enter new First Name", "Edit Record", lineParts[1]);
                     string newLastName = Microsoft.VisualBasic.Interaction.InputBox("Enter new Last Name", "Edit Record", lineParts[2]);
-                    string newEmail = Microsoft.VisualBasic.Interaction.InputBox("Enter new Email", "Edit Record", lineParts[4]);
-                    string newPassword = Microsoft.VisualBasic.Interaction.InputBox("Enter new Password", "Edit Record", lineParts[5]);
+                    string newEmail = Microsoft.VisualBasic.Interaction.InputBox("Enter new Email", "Edit Record", lineParts[3]);
+                    string newPassword = Microsoft.VisualBasic.Interaction.InputBox("Enter new Password", "Edit Record", lineParts[4]);
 
                     updatedLine = $"{newId}|{newFirstName}|{newLastName}|{newEmail}|{newPassword}";
                 }

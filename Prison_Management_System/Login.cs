@@ -95,11 +95,6 @@ namespace Prison_Management_System
         {
 
         }
-        private void YourForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Environment.Exit(0);
-            Application.Exit();
-        }
 
         private void register_Click(object sender, EventArgs e)
         {
@@ -113,6 +108,11 @@ namespace Prison_Management_System
             Register register = new Register();
             register.Show();
             this.Hide();
+        }
+        private void YourForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+            Application.Exit();
         }
     }
 }
